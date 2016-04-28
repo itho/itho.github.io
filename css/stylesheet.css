@@ -315,6 +315,7 @@ footer {
   padding-bottom: 30px;
   margin-top: 40px;
   font-size: 13px;
+  text-align: right;
   color: #aaa;
   background: transparent url('../images/hr.png') 0 0 no-repeat;
 }
