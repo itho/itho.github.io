@@ -1,6 +1,0 @@
-name: itho.co
-markdown: kramdown
-permalink: /blog/:year/:month/:day/:title
-gems:
-  - jekyll-sitemap
-  
