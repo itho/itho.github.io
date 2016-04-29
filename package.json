@@ -1,8 +1,9 @@
 {
-  "name": "Cayman",
+  "name": "Itho.Github.io",
   "version": "1.0.0",
-  "homepage": "http://github.com/jasonlong/cayman-theme",
-  "author": "Jason Long",
+  "homepage": "http://itho.co",
+  "tagline": "",
+  "author": "Ieuan Thomas",
   "scss": "./scss/cayman.scss",
   "devDependencies": {
     "grunt-browser-sync": "~2.1.1",
