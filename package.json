@@ -4,7 +4,7 @@
   "homepage": "http://itho.co",
   "tagline": "",
   "author": "Ieuan Thomas",
-  "scss": "./scss/cayman.scss",
+  "scss": "./resources/scss/cayman.scss",
   "devDependencies": {
     "grunt-browser-sync": "~2.1.1",
     "grunt": "~1.0.1",

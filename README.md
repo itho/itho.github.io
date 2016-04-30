@@ -1,8 +1,10 @@
 # itho.github.io
 
 Repo for [itho.co].
+
 Powered by [Jekyll].
-Built with the [Cayman theme].
+
+Themed with [Cayman].
 
 
 ### Version

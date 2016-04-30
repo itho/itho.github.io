@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         spawn: false
       },
       sass: {
-        files: 'scss/*.scss',
+        files: 'resources/scss/*.scss',
         tasks: ['sass', 'postcss', 'bsReload:css']
       },
       html: {
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'css/cayman.css': 'scss/cayman.scss'
+          'resources/css/cayman.css': 'resources/scss/cayman.scss'
         }
       }
     },
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'css/cayman.css': 'css/cayman.css'
+          'resources/css/cayman.css': 'resources/css/cayman.css'
         }
       }
     },
