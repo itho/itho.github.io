@@ -12,4 +12,4 @@ Themed with [Cayman].
 
 [itho.co]: <http://www.itho.co>
 [Jekyll]: <https://jekyllrb.com/>
-[Cayman theme]: <http://jasonlong.github.io/cayman-theme/>
+[Cayman]: <http://jasonlong.github.io/cayman-theme/>
