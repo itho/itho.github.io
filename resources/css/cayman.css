@@ -150,7 +150,7 @@ a {
       padding: 0;
       margin: 0;
       font-size: 0.9rem;
-      color: #567482;
+      /* color: #567482; syntax highlighting */ 
       word-break: normal;
       white-space: pre;
       background: transparent;
@@ -179,12 +179,10 @@ a {
     word-wrap: normal;
     background-color: transparent;
     border: 0; }
-    /* fix syntax highlighting (?)
     .main-content pre code:before, .main-content pre code:after,
     .main-content pre tt:before,
     .main-content pre tt:after {
       content: normal; }
-    */
   .main-content ul,
   .main-content ol {
     margin-top: 0; }
