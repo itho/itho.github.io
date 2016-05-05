@@ -1,7 +1,18 @@
-name: itho.co
-markdown: kramdown
-permalink: /blog/:year/:month/:day/:title
+# Setup
+title:        itho.co
+tagline:      Android development
+baseurl:      ""
+paginate:     1
+permalink:    /blog/:year/:month/:day/:title
+
+# About/contact
+author:
+  name:       Author name
+  url:        http://yourhomepage.com 
+
+# Gems
 gems:
-  - jekyll-sitemap
-  - rouge
-  
+  - jekyll-paginate
+
+#Others
+markdown: redcarpet
