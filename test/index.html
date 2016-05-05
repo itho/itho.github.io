@@ -244,8 +244,16 @@ title: test page - please ignore
 <p>Code can also use syntax highlighting.</p>
 
 <div class="highlight highlight-Javascript"><pre><span class="pl-k">var</span> foo <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>;</pre></div>
-
 {% highlight java %}
+public class HelloWorld
+{
+    public static void main(String[] args)
+    {
+        System.out.println("Hello World!");
+    }
+}
+{% endhighlight %}
+{% highlight java linenos %}
 public class HelloWorld
 {
     public static void main(String[] args)
