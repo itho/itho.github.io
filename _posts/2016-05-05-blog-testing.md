@@ -5,3 +5,11 @@ date: 2016-05-05
 ---
 
 So I've messed around a lot with the backend, and so far no frontend disasters...
+```java
+public class Help
+{
+    public static void main(String[] args)
+    {
+        System.exit(0);
+    }
+}
