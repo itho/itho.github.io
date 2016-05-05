@@ -1,18 +1,18 @@
 # Setup
-title:        itho.co
-tagline:      Android development
-baseurl:      ""
-paginate:     1
-permalink:    /blog/:year/:month/:day/:title
+title:      itho.co
+tagline:    Android development
+baseurl:    ""
+paginate:   1
+permalink:  /blog/:year/:month/:day/:title
 
 # About/contact
 author:
-  name:       Author name
-  url:        http://yourhomepage.com 
+  name:     Ieuan Thomas
+  url:      http://itho.co 
 
 # Gems
 gems:
   - jekyll-paginate
 
 #Others
-markdown: redcarpet
+markdown:   kramdown
