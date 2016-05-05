@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "itho.co site launch"
+title: "itho site launch"
 date: 2016-04-28
 ---
 
