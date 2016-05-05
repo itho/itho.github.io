@@ -43,7 +43,7 @@ DEPENDENCIES
   jekyll
   jekyll-paginate
   pygments.rb
-  redcarpet
+  kramdown
 
 BUNDLED WITH
    1.11.2
