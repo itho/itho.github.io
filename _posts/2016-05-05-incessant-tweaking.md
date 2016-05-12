@@ -1,7 +1,7 @@
 ---
 layout: post
-title: incessant tweaking
-header: itho - "incessant tweaking"
+title: itho - "incessant tweaking"
+header: incessant tweaking
 date: 2016-05-05
 ---
 
