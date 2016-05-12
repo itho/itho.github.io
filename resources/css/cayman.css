@@ -58,7 +58,7 @@ a {
   background: #1D4350; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #1D4350 , #A43931); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #1D4350 , #A43931); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-image:  url(/resources/images/theme/triangular_25.png), linear-gradient(to left, #1D4350 , #A43931); /* W3C */ }
+  background-image:  url(/resources/images/theme/congruent_pentagon_30.png), linear-gradient(to left, #1D4350 , #A43931); /* W3C */ }
   @media screen and (min-width: 64em) {
     .page-header {
       padding: 5rem 6rem; } }
