@@ -231,7 +231,7 @@ a {
   padding-top: 2rem;
   margin-top: 2rem;
   border-top: solid 1px #9e9e9e;
-  text-align: right; }
+  text-align: left; }
   @media screen and (min-width: 64em) {
     .site-footer {
       font-size: 1rem; } }
@@ -242,9 +242,5 @@ a {
     .site-footer {
       font-size: 0.9rem; } }
 
-.site-footer-owner {
-  display: block;
-  font-weight: bold; }
-
-.site-footer-credits {
-  color: #819198; }
+.site-footer-contact {
+  text-align: right; }
