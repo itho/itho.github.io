@@ -243,4 +243,5 @@ a {
       font-size: 0.9rem; } }
 
 .site-footer-contact {
+  display: block;
   text-align: right; }
