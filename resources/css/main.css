@@ -52,6 +52,7 @@ a:hover {
   opacity: 0 ;
   transform: scale(0.5,0.5);
 }
+/*
 .btn-three::after {
   content: '';
   position: absolute;
