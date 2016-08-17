@@ -1,3 +1,7 @@
+// This is a partial.
+// It lies in <source>/_sass, just waiting to be imported.
+// It does not contain the YAML front matter and has no corresponding output file in the built site.
+
 * {
   box-sizing: border-box;
 }
@@ -10,7 +14,7 @@ body {
   line-height: 1.5;
   color: #606c71;
   background: #e1e1e1;
-  background: url(/resources/images/theme/cream_dust.png) repeat 0 0;
+  background: url(/images/theme/cream_dust.png) repeat 0 0;
 }
 
 a {
@@ -60,7 +64,7 @@ a:hover {
   background: #1D4350; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #1D4350 , #A43931); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #1D4350 , #A43931); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-image:  url(/resources/images/theme/congruent_pentagon_10.png), linear-gradient(to left, #1D4350 , #A43931); /* W3C */
+  background-image:  url(/images/theme/congruent_pentagon_10.png), linear-gradient(to left, #1D4350 , #A43931); /* W3C */
 }
 
 @media screen and (min-width: 64em) {
