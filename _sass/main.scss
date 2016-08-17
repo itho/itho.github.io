@@ -61,10 +61,10 @@ a:hover {
   color: #fff;
   text-align: center;
   /* itho theme gradient */
-  background: #1D4350; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #1D4350 , #A43931); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #1D4350 , #A43931); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-image:  url(/images/theme/congruent_pentagon_10.png), linear-gradient(to left, #1D4350 , #A43931); /* W3C */
+  background: #292b37; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #292b37 , #A43931); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #292b37 , #A43931); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-image:  url(/images/theme/congruent_pentagon_10.png), linear-gradient(to left, #292b37 , #A43931); /* W3C */
 }
 
 @media screen and (min-width: 64em) {
@@ -177,7 +177,7 @@ a:hover {
   margin-bottom: 1rem;
   font-weight: normal;
   /* theme default #159957 */
-  color: #1D4350;
+  color: #292b37;
 }
 
 .main-content p {
