@@ -57,14 +57,18 @@ a:hover {
   transform: scale(0.75,0.75);
 }
 
+/* rm blue box shadow on click */
 #nav-btn-home:active,
 #nav-btn-home:focus,
-#nav-btn-home.active.
+#nav-btn-home:focus:active,
+#nav-btn-home.active,
 #nav-btn-projects:active,
 #nav-btn-projects:focus,
-#nav-btn-projects.active.
+#nav-btn-projects:focus:active,
+#nav-btn-projects.active,
 #nav-btn-about:active,
 #nav-btn-about:focus,
+#nav-btn-about:focus:active,
 #nav-btn-about.active {
   background-image: none;
   outline: 0;
