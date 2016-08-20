@@ -57,9 +57,15 @@ a:hover {
   transform: scale(0.75,0.75);
 }
 
-.btn-three:active,
-.btn-three:focus,
-.btn-three.active {
+#nav-btn-home:active,
+#nav-btn-home:focus,
+#nav-btn-home.active.
+#nav-btn-projects:active,
+#nav-btn-projects:focus,
+#nav-btn-projects.active.
+#nav-btn-about:active,
+#nav-btn-about:focus,
+#nav-btn-about.active {
   background-image: none;
   outline: 0;
   -webkit-box-shadow: none;
