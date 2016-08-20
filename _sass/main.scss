@@ -57,6 +57,15 @@ a:hover {
   transform: scale(0.75,0.75);
 }
 
+.btn-three:active,
+.btn-three:focus,
+.btn-three.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .page-header {
   color: #fff;
   text-align: center;
