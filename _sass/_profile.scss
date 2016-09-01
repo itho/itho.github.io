@@ -4,10 +4,6 @@
 
 @import "compass/utilities/links/unstyled-link";
 
-body{
-  font-family: 'Raleway', sans-serif;  
-}
-
 #profile-card{
   width:400px;
   height:500px;
@@ -20,6 +16,7 @@ body{
   background: center center no-repeat;
   background-size:cover;
 }
+
 .profile-info{
   height:175px;
   background:#FAFAFA;
@@ -48,6 +45,7 @@ body{
     padding:0px 60px;
   }
 }
+
 .profile-social{
   height:40px;
   background:#DAE0DE;
