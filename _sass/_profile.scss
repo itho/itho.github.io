@@ -9,6 +9,21 @@
   margin:0px auto;
 }
 
+// desktop
+@media screen and (min-width: 64em) {
+  #profile-card {height:235px;width:750px;}
+  .profile-image-bg{height:235px;width:400;}
+  #profile-right-col {height:235px;width:350;}
+}
+// tablet
+@media screen and (max-width: 64em) and (min-width: 42em) {
+  #profile-card {}
+}
+// mobile
+@media screen and (max-width: 42em) {
+  #profile-card {}
+}
+
 #profile-left-col {
   float: left;
 }
@@ -17,8 +32,6 @@
 }
 
 .profile-image-bg{
-  height:215px;
-  width: 575px;
   background: center center no-repeat;
   background-size:cover;
 }
