@@ -2,7 +2,9 @@
 
 #profile-card{
   width:auto;
+  min-width:auto;
   height:auto;
+  min-height:215px;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
   margin:0px auto;
 }
@@ -15,9 +17,9 @@
 }
 
 .profile-image-bg{
-  height:275px;
-  background: center center no-repeat;
-  background: url(/assets/img/bg-purple.png);
+  height:215px;
+  width: 575px;
+  background: url(/assets/img/bg-purple.png) center center no-repeat;
   background-size:cover;
 }
 
