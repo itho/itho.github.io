@@ -16,14 +16,14 @@
 }
 // tablet
 @media screen and (max-width: 64em) and (min-width: 42em) {
-  #profile-card {height:270px;width:auto;}
-  .profile-image-bg{height:235px;width:400px;}
+  #profile-card {height:235px;width:auto;}
+  .profile-image-bg{height:235px;width:auto;}
   #profile-right-col {height:235px;width:350px;}
 }
 // mobile
 @media screen and (max-width: 42em) {
-  #profile-card {height:270px;width:auto;}
-  .profile-image-bg{height:235px;width:400px;}
+  #profile-card {height:235px;width:auto;}
+  .profile-image-bg{height:235px;width:auto;}
   #profile-right-col {height:235px;width:350px;}
 }
 
