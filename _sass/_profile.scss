@@ -46,14 +46,16 @@
   background:#DAE0DE;
   text-align:center;
   padding-top:20px;
-  i{
-    font-size:20px;
-  }
   a{
     margin:0px 10px;
     color:#666;
-    &:hover{
-      color:#00BBBB;
-    }
   }
+  i{
+    font-size:20px;
+  }
+  .fa-twitter:hover{color:#0084b4;}
+  .fa-linkedin:hover{color:#007bb6;}
+  .fa-facebook:hover{color:#3b5998;}
+  .fa-google-plus:hover{color:#d34836;}
+  .fa-github:hover{color:#000000;}
 }
