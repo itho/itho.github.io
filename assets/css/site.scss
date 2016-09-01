@@ -3,7 +3,5 @@
 # only Main files contain this front matter, not partials.
 ---
 
-@import "reset.min";
-@import "font-awesome";
-@import "monokai";
-@import "main";
+// /_sass/module.scss
+@import "module";
