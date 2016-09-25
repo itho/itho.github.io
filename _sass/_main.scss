@@ -78,10 +78,10 @@ a:hover {
   color: #fff;
   text-align: center;
   /* itho theme gradient */
-  background: #292b37; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #292b37 , #000); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #292b37 , #000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-image:  url(/assets/img/pattern/congruent_pentagon_10.png), linear-gradient(to left, #292b37 , #000); /* W3C */
+  // background: #292b37; /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to left, #292b37 , #000); /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to left, #292b37 , #000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  // background-image:  url(/assets/img/pattern/congruent_pentagon_10.png), linear-gradient(to left, #292b37 , #000); /* W3C */
 }
 
 @media screen and (min-width: 64em) {
@@ -150,6 +150,7 @@ a:hover {
 }
 
 .main-content {
+  background: url(/assets/img/pattern/cream_dust.png) repeat 0 0;
   word-wrap: break-word;
 }
 
