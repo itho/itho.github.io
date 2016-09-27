@@ -1,4 +1,4 @@
-var trueInnerWidth = $(window).width();
+var viewportWidth = $(window).width();
 var refreshDuration = 10000;
 var refreshTimeout;
 var numPointsX;
@@ -10,7 +10,7 @@ var points;
 function onLoad()
 {
     var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('width',trueInnerWidth);
+    svg.setAttribute('width',viewportWidth);
     svg.setAttribute('height',366);
     document.querySelector('#bg').appendChild(svg);
 
