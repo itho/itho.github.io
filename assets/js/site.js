@@ -128,5 +128,5 @@ function onResize() {
     onLoad();
 }
 
-window.onload = onLoad;
+$(document).ready(onLoad);
 window.onresize = onResize;
