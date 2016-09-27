@@ -1,4 +1,3 @@
-var viewportWidth = $(window).width();
 var refreshDuration = 10000;
 var refreshTimeout;
 var numPointsX;
@@ -6,6 +5,16 @@ var numPointsY;
 var unitWidth;
 var unitHeight;
 var points;
+var viewportHeight;
+var viewportWidth;
+
+if (document.compatMode === 'BackCompat') {
+    viewportHeight = document.body.clientHeight;
+    viewportWidth = document.body.clientWidth;
+} else {
+    viewportHeight = document.documentElement.clientHeight;
+    viewportWidth = document.documentElement.clientWidth;
+}
 
 function onLoad()
 {
