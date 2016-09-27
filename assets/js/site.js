@@ -9,7 +9,7 @@ var points;
 function onLoad()
 {
     var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('width',window.innerWidth);
+    svg.setAttribute('width',$(window).width());
     svg.setAttribute('height',366);
     document.querySelector('#bg').appendChild(svg);
 
