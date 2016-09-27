@@ -1,6 +1,6 @@
 # Setup
 title:      itho
-tagline:    Android development
+tagline:    software development
 baseurl:    ""
 paginate:   1
 permalink:  /blog/:year/:month/:day/:title
