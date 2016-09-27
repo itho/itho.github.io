@@ -5,19 +5,20 @@ var numPointsY;
 var unitWidth;
 var unitHeight;
 var points;
-var viewportHeight;
-var viewportWidth;
-
-if (document.compatMode === 'BackCompat') {
-    viewportHeight = document.body.clientHeight;
-    viewportWidth = document.body.clientWidth;
-} else {
-    viewportHeight = document.documentElement.clientHeight;
-    viewportWidth = document.documentElement.clientWidth;
-}
 
 function onLoad()
 {
+    var viewportHeight;
+    var viewportWidth;
+
+    if (document.compatMode === 'BackCompat') {
+        viewportHeight = document.body.clientHeight;
+        viewportWidth = document.body.clientWidth;
+    } else {
+        viewportHeight = document.documentElement.clientHeight;
+        viewportWidth = document.documentElement.clientWidth;
+    }
+    
     var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('width',viewportWidth);
     svg.setAttribute('height',366);
