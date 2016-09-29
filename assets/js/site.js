@@ -9,7 +9,6 @@ var points;
 $(document).ready(onLoad);
 $(window).resize(onResize);
 
-console.clear()
 console.log('Ieuan Thomas\nieuan.thomas@gmail.com\nitho.co');
 
 function onLoad()
