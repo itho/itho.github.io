@@ -6,6 +6,12 @@ var unitWidth;
 var unitHeight;
 var points;
 
+$(document).ready(onLoad);
+$(window).resize(onResize);
+
+console.clear()
+console.log('Ieuan Thomas\nieuan.thomas@gmail.com\nitho.co');
+
 function onLoad()
 {
     var viewportHeight;
@@ -127,6 +133,3 @@ function onResize() {
     clearTimeout(refreshTimeout);
     onLoad();
 }
-
-$(document).ready(onLoad);
-window.onresize = onResize;
