@@ -100,12 +100,14 @@ function init()
 
     refresh();
 
+    /*
     $('.page-header').fadeOut(2000, 'swing', function() {
         // placeholder
     });
     $('.main-content').fadeOut(2000, 'swing', function() {
         // placeholder
     });
+    */
 }
 
 function randomize() {
