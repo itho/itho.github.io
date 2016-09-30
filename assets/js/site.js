@@ -6,12 +6,12 @@ var unitWidth;
 var unitHeight;
 var points;
 
-$(document).ready(onLoad);
+$(document).ready(init);
 $(window).resize(onResize);
 
 console.log('Ieuan Thomas\nieuan.thomas@gmail.com\nitho.co');
 
-function onLoad()
+function init()
 {
     var viewportHeight;
     var viewportWidth;
@@ -130,5 +130,5 @@ function refresh() {
 function onResize() {
     document.querySelector('#bg svg').remove();
     clearTimeout(refreshTimeout);
-    onLoad();
+    init();
 }
