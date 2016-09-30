@@ -100,6 +100,12 @@ function init()
 
     refresh();
 
+    $('.page-header').fadeIn(400, 'swing', function() {
+        // placeholder
+    });
+    $('.main-content').fadeIn(400, 'swing', function() {
+        // placeholder
+    });
 }
 
 function randomize() {
