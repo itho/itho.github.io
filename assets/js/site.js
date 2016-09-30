@@ -100,10 +100,10 @@ function init()
 
     refresh();
 
-    $('.page-header').fadeIn(400, 'swing', function() {
+    $('.page-header').fadeOut(2000, 'swing', function() {
         // placeholder
     });
-    $('.main-content').fadeIn(400, 'swing', function() {
+    $('.main-content').fadeOut(2000, 'swing', function() {
         // placeholder
     });
 }
