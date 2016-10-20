@@ -16,23 +16,22 @@
       { name: "Media", commands: [
         { key: 's', name: 'SoundCloud', url: 'https://soundcloud.com', search: '/search?q=' },
         { key: 'u', name: 'Unsplash', url: 'https://unsplash.com', search: '/search?keyword=' },
-        { key: 'y', name: 'YouTube', url: 'https://www.youtube.com', search: '/results?search_query=' },
         { key: 't', name: 'Twitch', url: 'https://www.twitch.tv/' },
+        { key: 'y', name: 'YouTube', url: 'https://www.youtube.com', search: '/results?search_query=' },
       ] },
       { name: "News", commands: [
         { key: 'b', name: 'BBC News', url: 'https://www.bbc.co.uk', search: '/search?q=' },
-        { key: 'p', name: 'Product Hunt', url: 'https://www.producthunt.com', search: '/search?q=' },
         { key: 'r', name: 'Reddit', url: 'https://www.reddit.com', search: '/search?q=' },
-        { key: 'T', name: 'Codrops', url: 'http://tympanus.net/codrops', search: '/?search-type=posts&s=' },
       ] },
       { name: "Social", commands: [
-        { key: 'i', name: 'Inbox', url: 'https://inbox.google.com', search: '/search/' },
         { key: 'f', name: 'Facebook', url: 'https://www.facebook.com', search: '/search/top/?q=' },
         { key: 'G', name: 'Gmail', url: 'https://mail.google.com' },
+        { key: 'i', name: 'Inbox', url: 'https://inbox.google.com', search: '/search/' },
         { key: 'I', name: 'Instagram', url: 'https://www.instagram.com' },
         { key: 'T', name: 'Twitter', url: 'https://twitter.com', search: '/search?q=' },
       ] },
       { name: "Tools", commands: [
+        { key: 'a', name: 'Amazon', url: 'https://www.amazon.co.uk', search: '/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=' },
         { key: 'd', name: 'Drive', url: 'https://drive.google.com/drive', search: '/search?q=' },
         { key: 'g', name: 'GitHub', url: 'https://github.com', search: '/search?q=' },
         { key: 'k', name: 'Keep', url: 'https://keep.google.com', search: '/#search/text=' },
@@ -79,7 +78,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono" rel="stylesheet">
 <link rel="icon" type="image/png" href="/assets/img/icon/favicon.ico">
 
 <title>~</title>
@@ -142,7 +141,8 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     color: #fff;
-    font-family: 'Lato', sans-serif;
+    /*font-family: 'Lato', sans-serif;*/
+    font-family: 'Roboto', sans-serif;
   }
 
   ul,
@@ -261,7 +261,8 @@
     float: left;
     border-radius: 2px;
     background: #292929;
-    font-family: 'Courier New', monospace;
+    /*font-family: 'Courier New', monospace;*/
+    font-family: 'Roboto Mono', monospace;
     text-align: center;
   }
 
