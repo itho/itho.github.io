@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <!-- Based on https://github.com/cadejscroggins/tilde -->
@@ -78,7 +79,7 @@
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#292b37">
 
-<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400|Roboto+Mono" rel="stylesheet">
 <link rel="icon" type="image/png" href="/assets/img/icon/favicon.ico">
 
 <title>~</title>
@@ -273,9 +274,44 @@
       align-items: center;
     }
   }
+
+  #quick-links {
+    text-align: center;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    transition: 0.3s ease;
+    opacity: 0;
+  }
+  #quick-links:hover {
+    opacity: 1;
+  }
+
+  #quick-links > a {
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10pt;
+    color: #fafafa;
+    text-decoration: none;
+    font-weight: 300;
+  }
+  
 </style>
 
 <div id="bg"></div>
+
+<div id="quick-links">
+  <a href="https://www.facebook.com">Facebook</a>
+  &nbsp;-&nbsp;
+  <a href="https://mail.google.com">Gmail</a>
+  &nbsp;-&nbsp;
+  <a href="https://www.reddit.com/r/all/">Reddit</a>
+  &nbsp;-&nbsp;
+  <a href="https://www.twitch.tv/directory/following">Twitch</a>
+  &nbsp;-&nbsp;
+  <a href="https://www.youtube.com/">YouTube</a>
+</div>
 
 <main>
   <time id="js-clock"></time>
