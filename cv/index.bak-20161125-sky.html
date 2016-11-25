@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-  <link rel="icon" type="image/png" href="/assets/img/icon/favicon.ico">
+  <link rel="icon" type="image/png" href="http://itho.co/assets/img/icon/favicon.ico">
   <title>Ieuan Thomas - CV</title>
   <style>
     body {
@@ -91,6 +91,15 @@
       color: #555;
     }
     /* row-3 */
+    #logo-sky {
+      width: auto;
+      height: 45px;
+      position: absolute;
+      margin-top: -10px;
+    }
+    .employment-date {
+      padding-top: 30px;
+    }
     #row-3 td:nth-child(1) {
       color: #555;
       width: 150px;
@@ -102,7 +111,7 @@
   </style>
 </head>
 <body>
-  <page id="CV" size="A4">
+  <page id="CV-1" size="A4">
     <div id="banner"></div>
     <div id="content">
       <div id="row-1">
@@ -180,11 +189,12 @@
           <h1>Employment History</h1>
           <table>
             <tr>
-              <th>Sky</th>
+              <!-- <th>Sky</th> -->
+              <th><a href="https://www.sky.com/" target="_blank"><img id="logo-sky" src="http://itho.co/assets/img/sky/Sky_plc_logo.png"></a></th>
               <th>Technical Operations Analyst</th>
             </tr>
             <tr>
-              <td class="mono">Dec 2016 - present</td>
+              <td class="mono employment-date">Dec 2016 - present</td>
               <td>
                 <p>Netsend is a document distribution company for financial documents, facilitating the generation of 
                 documents from internal accounting software/data to the online storage and multi-channel distribution. 
@@ -198,28 +208,17 @@
                 the project and I was also the front-end developer working with Laravel as the framework for our 
                 sites to create the views in PHP, HTML, CSS (Sass) and Javascript (jQuery), after having the 
                 plans approved by the directors of the company.</p>
-                <p>Using my skills with Java in creating Android applications, I developed a complimentary app to 
-                deliver our new responsive sites to our clients on their mobile devices, using an implementation of 
-                Chrome custom tabs, which provided a professional and integrated experience.</p>
-                <p>With respect to development work, I also updated the company's outgoing email templates and signatures 
-                to a responsive and more modern looking standard. The main contact at our largest client noticed these 
-                changes and requested similar work to outgoing mail we provided to their customers as part of our 
-                service to them, generating extra projects and revenue for our company.</p>
-                <p>From an analytical aspect, I have been involved more with project planning, leveraging my company 
-                knowledge against my strengths in logic and planning to ensure that we approached tasks in the best manner. 
-                These include internal meetings, where I would often need to act as an intermediary between 
-                technical and non-technical teams, but also on client conference calls where I would liase with 
-                technical and non-technical contacts to ensure all necessary information is extracted pertaining to a project.</p>
               </td>
             </tr>
           </table>
           <table>
             <tr>
-              <th>Netsend Ltd</th>
+              <!-- <th>Netsend Ltd</th> -->
+              <th><a href="http://www.netsend.com" target="_blank"><img id="logo-sky" src="http://itho.co/assets/img/netsend/Netsend_Secondary_RGB.png"></a></th>
               <th>Product Development Engineer &amp; Software Tester</th>
             </tr>
             <tr>
-              <td class="mono">Jun 2016 - Dec 2016</td>
+              <td class="mono employment-date">Jun 2016 - Dec 2016</td>
               <td>
                 <p>Netsend is a document distribution company for financial documents, facilitating the generation of 
                 documents from internal accounting software/data to the online storage and multi-channel distribution. 
@@ -248,13 +247,24 @@
               </td>
             </tr>
           </table>
+        </section>
+      </div>
+    </div>
+  </page>
+  <page id="CV-2" size="A4">
+    <div id="banner"></div>
+    <div id="content">
+      <div id="row-3">
+        <div style="height:50px;"></div>
+        <section>
           <table>
             <tr>
-              <th>Netsend Ltd</th>
+              <!-- <th>Netsend Ltd</th> -->
+              <th><a href="http://www.netsend.com" target="_blank"><img id="logo-sky" src="http://itho.co/assets/img/netsend/Netsend_Secondary_RGB.png"></a></th>
               <th>Software Tester</th>
             </tr>
             <tr>
-              <td class="mono">Nov 2014 - Jun 2016</td>
+              <td class="mono employment-date">Nov 2014 - Jun 2016</td>
               <td>
                 <p>I undertook quality-assurance testing for all client systems and development projects. I performed 
                 white-box system, performance, load, regression, stress and data interface testing. Providing 
@@ -278,7 +288,8 @@
   </page>
   <script>
     console.log('Ieuan Thomas\nieuan.thomas@gmail.com\nitho.co');
-    var page = document.getElementById("CV");
+    var page1 = document.getElementById("CV-1");
+    var page2 = document.getElementById("CV-2");
     function fadeIn(page) {
       page.style.opacity = 0;
       var tick = function() {
@@ -289,7 +300,8 @@
       };
       tick();
     }
-    fadeIn(page);
+    fadeIn(page1);
+    fadeIn(page2);
   </script>
 </body>
 </html>
