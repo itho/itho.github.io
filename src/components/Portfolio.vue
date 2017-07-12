@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="headline mb-0 white-text">Portfolio</h1>
+    <h1 class="mb-0 white--text">Portfolio</h1>
     <br>
     <v-card>
       <v-card-title primary-title>
