@@ -44,7 +44,6 @@ const router = new VueRouter({
     routes // short for `routes: routes`
 });
 
-new Vue({
-    el: '#app',
+const app = new Vue({
     router
-});
+}).$mount('#app');
