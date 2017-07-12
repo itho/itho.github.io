@@ -29,6 +29,9 @@
   .menu__content {
       background: #303030;
   }
+  .application--light {
+    background: transparent;
+  }
 </style>
 
 <script>

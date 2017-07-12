@@ -24,7 +24,8 @@ function init()
 
     var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('width',viewportWidth);
-    svg.setAttribute('height',366);
+    //svg.setAttribute('height',366);
+    svg.setAttribute('height',viewportHeight);
     document.querySelector('#poly').appendChild(svg);
 
     var unitSize = (window.innerWidth+window.innerHeight)/20;
