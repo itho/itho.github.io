@@ -5,6 +5,7 @@
     <v-card>
       <v-card-title primary-title>
         <div>
+          <h3 class="headline mb-0">Get in touch...</h3>
           <div>Professional web and cross platform mobile development.</div>
           <div>Please get in contact if you would like to discuss any opportunities.</div>
           <div>Email: <a href="mailto:contact@itho.co">contact@itho.co</a></div>
