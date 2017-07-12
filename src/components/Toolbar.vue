@@ -13,6 +13,9 @@
 </template>
 
 <style>
+  .application--light .toolbar {
+    background: rgba(255, 255, 255, 0.4);
+  }
   .toolbar__title {
     margin-left: 20px;
   }
