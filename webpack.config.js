@@ -4,8 +4,8 @@ var webpack = require('webpack')
 module.exports = {
   entry: './src/app.js',
   output: {
-    path: path.resolve(__dirname, './assets'),
-    publicPath: '/assets/',
+    path: path.resolve(__dirname, './assets/js'),
+    publicPath: '/assets/js',
     filename: 'app.js'
   },
   resolve: {
