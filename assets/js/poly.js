@@ -9,8 +9,6 @@ var points;
 $(document).ready(init);
 $(window).resize(onResize);
 
-console.log('Ieuan Thomas\nieuan.thomas@gmail.com\nitho.co');
-
 function init()
 {
     var viewportHeight;
@@ -23,11 +21,11 @@ function init()
         viewportHeight = document.documentElement.clientHeight;
         viewportWidth = document.documentElement.clientWidth;
     }
-    
+
     var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('width',viewportWidth);
     svg.setAttribute('height',366);
-    document.querySelector('#bg').appendChild(svg);
+    document.querySelector('#poly').appendChild(svg);
 
     var unitSize = (window.innerWidth+window.innerHeight)/20;
     numPointsX = Math.ceil(window.innerWidth/unitSize)+1;
@@ -123,8 +121,8 @@ function randomize() {
 
 function refresh() {
     randomize();
-    for(var i = 0; i < document.querySelector('#bg svg').childNodes.length; i++) {
-        var polygon = document.querySelector('#bg svg').childNodes[i];
+    for(var i = 0; i < document.querySelector('#poly svg').childNodes.length; i++) {
+        var polygon = document.querySelector('#poly svg').childNodes[i];
         var animate = polygon.childNodes[0];
         if(animate.getAttribute('to')) {
             animate.setAttribute('from',animate.getAttribute('to'));
@@ -136,7 +134,7 @@ function refresh() {
 }
 
 function onResize() {
-    document.querySelector('#bg svg').remove();
+    document.querySelector('#poly svg').remove();
     clearTimeout(refreshTimeout);
     init();
 }

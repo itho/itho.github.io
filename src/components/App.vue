@@ -1,6 +1,6 @@
 <template>
     <v-app light>
-      <poly>
+      <div id="poly"></div>
       <app-toolbar></app-toolbar>
       <main>
           <v-container fluid>
@@ -17,19 +17,26 @@
 </template>
 
 <style>
-    .menu__content {
-        background: #303030;
-    }
+  #poly {
+    background: radial-gradient(ellipse at center, #292b37 40%, black 100%);
+    background: #292b37;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+  .menu__content {
+      background: #303030;
+  }
 </style>
 
 <script>
   import AppToolbar from './Toolbar.vue';
-  import Poly from './Poly.vue';
 
   export default {
       components: {
-          AppToolbar,
-          Poly
+          AppToolbar
       }
   }
 </script>
