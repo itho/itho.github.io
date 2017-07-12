@@ -22,7 +22,7 @@
 </style>
 
 <script>
-  import AppToolbar from './layout/Toolbar.vue';
+  import AppToolbar from './Toolbar.vue';
 
   export default {
       components: {
