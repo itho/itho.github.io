@@ -1,5 +1,6 @@
 <template>
     <v-app light>
+      <poly>
       <app-toolbar></app-toolbar>
       <main>
           <v-container fluid>
@@ -23,10 +24,12 @@
 
 <script>
   import AppToolbar from './Toolbar.vue';
+  import Poly from './Poly.vue';
 
   export default {
       components: {
-          AppToolbar
+          AppToolbar,
+          Poly
       }
   }
 </script>

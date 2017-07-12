@@ -13,6 +13,9 @@
 </template>
 
 <style>
+  .toolbar__title {
+    margin-left: 20px;
+  }
   .toolbar__side-icon {
       margin-left: 20px !important;
   }
