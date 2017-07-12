@@ -1,20 +1,10 @@
 <template>
-    <v-app dark>
-      <v-toolbar>
-        <v-toolbar-title>Title</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon>
-        <v-toolbar-items class="hidden-sm-and-down">
-          <v-btn flat :router="true" :to="{name: 'home'}">Home</v-btn>
-          <v-btn flat :router="true" :to="{name: 'about'}">About</v-btn>
-          <v-btn flat :router="true" :to="{name: 'portfolio'}">Portfolio</v-btn>
-          <v-btn flat :router="true" :to="{name: 'contact'}">Contact</v-btn>
-        </v-toolbar-items>
-      </v-toolbar>
+    <v-app light>
+      <app-toolbar></app-toolbar>
       <main>
           <v-container fluid>
               <v-layout row>
-                  <v-flex xs12 md10 offset-md1>
+                  <v-flex xs12 md8 offset-md2>
                       <v-slide-x-transition mode="out-in">
                           <router-view></router-view>
                       </v-slide-x-transition>
@@ -32,11 +22,11 @@
 </style>
 
 <script>
-    export default {
-        data: function() {
-            return {
-                user: []
-            };
-        },
-    }
+  import AppToolbar from './layout/Toolbar.vue';
+
+  export default {
+      components: {
+          AppToolbar
+      }
+  }
 </script>
