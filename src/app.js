@@ -1,3 +1,6 @@
+import VueRouter from 'vue-router';
+import Vuetify from 'vuetify';
+
 window.Vue = Vue;
 Vue.use(VueRouter);
 Vue.use(Vuetify);
