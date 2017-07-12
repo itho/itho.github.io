@@ -1,3 +1,5 @@
+import VueRouter from 'vue-router';
+
 let routes = [
     {
         path: '/', redirect: '/home'
