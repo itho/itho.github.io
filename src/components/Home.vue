@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="mb-0 white--text">itho // Software Design</h1>
+    <h1 class="mb-0 white--text">Software &amp; Design</h1>
     <br>
     <v-card>
       <v-card-title primary-title>

@@ -18,9 +18,13 @@
   }
   .toolbar__title {
     margin-left: 20px;
+    color: rgba(255,255,255,.87);
   }
   .toolbar__side-icon {
       margin-left: 20px !important;
+  }
+  .application--light .toolbar .btn {
+    color: rgba(255,255,255,.87);
   }
 </style>
 
