@@ -4,12 +4,12 @@
     <br>
     <v-card>
       <v-card-title primary-title>
-        <div>
-          <h3 class="headline mb-0">What we've done...</h3>
-          <div>Professional web and cross platform mobile development.</div>
-          <div>Please stand by while the site is built.</div>
-        </div>
+        <h3 class="headline mb-0">What we've done...</h3>
       </v-card-title>
+      <v-card-text>
+        <p>Professional web and cross platform mobile development.</p>
+        <p>Please stand by while the site is built.</p>
+      </v-card-text>
     </v-card>
   </div>
 </template>
