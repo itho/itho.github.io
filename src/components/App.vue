@@ -134,7 +134,19 @@
           </v-layout>
         </section>
 
-        <v-footer class="grey lighten-2">
+        <!-- <v-footer class="grey lighten-2">
+          <v-layout row wrap align-center>
+            <v-flex xs12>
+              <div class="ml-3">
+                Made with
+                <v-icon class="teal--text">code</v-icon>
+                by <a href="https://github.com/itho" target="_blank">itho</a>
+              </div>
+            </v-flex>
+          </v-layout>
+        </v-footer> -->
+      </main>
+      <v-footer class="grey lighten-2">
           <v-layout row wrap align-center>
             <v-flex xs12>
               <div class="ml-3">
@@ -145,7 +157,6 @@
             </v-flex>
           </v-layout>
         </v-footer>
-      </main>
       <!-- <v-footer class="pa-3">
         <v-spacer></v-spacer>
         <div>© {{ new Date().getFullYear() }}</div>
