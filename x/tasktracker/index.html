@@ -1,57 +1,36 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Fonts & Styles -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" rel="stylesheet">
-  <link href="https://unpkg.com/vuetify@0.15.7/dist/vuetify.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/vuetify@0.17.0-beta.2/dist/vuetify.min.css" rel="stylesheet">
   <style></style>
   <!-- Title -->
-  <title>TicketTracker</title>
+  <title>TaskTracker</title>
 </head>
 <body>
   <div id="app">
     <v-app>
-      <v-toolbar dark class="primary">
-        <v-toolbar-side-icon></v-toolbar-side-icon>
-        <v-toolbar-title class="white--text">TicketTracker</v-toolbar-title>
+      <!-- <v-navigation-drawer app></v-navigation-drawer> -->
+      <v-toolbar app dark color="primary">
+        <v-toolbar-title>TaskTracker</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn icon>
-          <v-icon>more_vert</v-icon>
-        </v-btn>
+        <v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon>
+        <v-toolbar-items class="hidden-sm-and-down">
+          <v-btn dark flat :to="{name: 'tasks'}">Data</v-btn>
+          <v-btn dark flat :to="{name: 'charts'}">Charts</v-btn>
+        </v-toolbar-items>
       </v-toolbar>
-      <main>
+      <v-content>
         <v-container fluid>
-          <!-- <v-btn @click="show = !show">click</v-btn> -->
-          <table width="100%">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Type</th>
-                <th>Reporter</th>
-                <th>Created</th>
-                <th>Completed</th>
-                <th>Quantity</th>
-                <th>Comment</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(task, i) in tasks" :key="i">
-                <td>{{task.id}}</td>
-                <td>{{task.type}}</td>
-                <td>{{task.reporter_id}}</td>
-                <td>{{task.created_date}}</td>
-                <td>{{task.completed_date}}</td>
-                <td>{{task.quantity}}</td>
-                <td>{{task.comment}}</td>
-              </tr>
-            </tbody>
-          </table>
+          <router-view></router-view>
+          <data-component :tasks="tasks"></data-component>
         </v-container>
-      </main>
-      <v-footer></v-footer>
+      </v-content>
+      <v-footer app></v-footer>
     </v-app>
   </div>
 
@@ -59,22 +38,169 @@
   <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
   <script src="https://unpkg.com/vuefire@1.4.4/dist/vuefire.min.js"></script>
   <!-- <script src="https://unpkg.com/vue-resource@1.3.4/dist/vue-resource.min.js"></script> -->
-  <!-- <script src="https://unpkg.com/vue-router@2.7.0/dist/vue-router.min.js"></script> -->
-  <script src="https://unpkg.com/vuetify@0.15.7/dist/vuetify.min.js"></script>
+  <script src="https://unpkg.com/vue-router@2.7.0/dist/vue-router.min.js"></script>
+  <script src="https://unpkg.com/vuetify@0.17.0-beta.2/dist/vuetify.min.js"></script>
+
+  <script type="text/x-template" id="data-component-template">
+    <div>
+      <v-card>
+        <v-card-title>
+          
+          <v-spacer></v-spacer>
+          <v-text-field
+            append-icon="search"
+            label="Search"
+            single-line
+            hide-details
+            v-model="search"
+          ></v-text-field>
+        </v-card-title>
+        <v-data-table
+            v-bind:headers="headers"
+            v-bind:items="tasks"
+            v-bind:search="search"
+          >
+          <template slot="items" scope="props">
+            <td>
+              <v-edit-dialog
+                lazy
+              > {{ props.item.id }}
+                <v-text-field
+                  slot="input"
+                  label="Edit"
+                  v-model="props.item.name"
+                  single-line
+                  counter
+                  :rules="[max25chars]"
+                ></v-text-field>
+              </v-edit-dialog>
+            </td>
+            <td class="text-xs-right">{{ props.item.type }}</td>
+            <td class="text-xs-right">{{ props.item.reporter_id }}</td>
+            <td class="text-xs-right">{{ props.item.created_date }}</td>
+            <td class="text-xs-right">{{ props.item.completed_date }}</td>
+            <td class="text-xs-right">{{ props.item.quantity }}</td>
+            <td class="text-xs-right">
+              <v-edit-dialog
+                @open="tmp = props.item.comment"
+                @save="props.item.comment = tmp || props.item.comment"
+                large
+                lazy
+              >
+                <div>{{ props.item.comment }}</div>
+                <div slot="input" class="mt-3 title">Update comment</div>
+                <v-text-field
+                  slot="input"
+                  label="Edit"
+                  v-model="tmp"
+                  single-line
+                  counter
+                  autofocus
+                  :rules="[max25chars]"
+                ></v-text-field>
+              </v-edit-dialog>
+            </td>
+          </template>
+          <template slot="pageText" scope="{ pageStart, pageStop }">
+            From {{ pageStart }} to {{ pageStop }}
+          </template>
+        </v-data-table>
+      </v-card>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="add-task-component-template">
+    <div>
+      <h1>add task</h1>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="charts-component-template">
+    <div>
+      <h1>charts</h1>
+    </div>
+  </script>
+  
   <script>
     Vue.config.devtools = true
-    Vue.use(VueFire)
 
+    // Data
     let data = {
       tasks: [],
-      show: false,
       newTask: {
-        comment: "",
-        type: ""
+        id: '',
+        type: '',
+        reporter_id: '',
+        created_date: '',
+        completed_date: '',
+        quantity: '',
+        comment:''
       }
     }
 
-    let config = {
+    // Components
+    Vue.component('data-component', {
+      props: ['tasks'],
+      template: '#data-component-template',
+      data() {
+        return {
+        max25chars: (v) => v.length <= 25 || 'Input too long!',
+        tmp: '',
+        search: '',
+        pagination: {},
+        headers: [
+          {
+            text: 'Task',
+            align: 'left',
+            sortable: false,
+            value: 'id'
+          },
+          { text: 'Type', value: 'type' },
+          { text: 'Reporter', value: 'reporter_id' },
+          { text: 'Created Date', value: 'created_date' },
+          { text: 'Completed Date', value: 'completed_date' },
+          { text: 'Quantity', value: 'quantity' },
+          { text: 'Comment', value: 'comment' }
+        ],
+      }
+    },
+      methods: {
+        addTask2() {
+          return false
+        }
+      }
+    })
+
+    const AddTaskComponent = {template: '<add-task-component></add-task-component>'}
+    Vue.component('add-task-component', {
+      template: '#add-task-component-template',
+      data() {
+        return {}
+      },
+      methods: {
+        addTask3() {
+          return false
+        }
+      }
+    })
+
+    const ChartsComponent = {template: '<charts-component></charts-component>'}
+    Vue.component('charts-component', {
+      template: '#charts-component-template',
+      data() {
+        return {}
+      },
+      methods: {
+        addTask4() {
+          return false
+        }
+      }
+    })
+
+    // VueFire
+    Vue.use(VueFire)
+
+    const config = {
       apiKey: "AIzaSyB14Gym0u8xrPUVF1CwOrui4WjfNaNPETc",
       authDomain: "tasktracker-c860b.firebaseapp.com",
       databaseURL: "https://tasktracker-c860b.firebaseio.com",
@@ -85,34 +211,65 @@
 
     const firebaseApp = firebase.initializeApp(config)
     const db = firebaseApp.database()
-    // const tasksRef = db.ref().child('/tasks')
     const tasksRef = db.ref('/tasks')
 
-    console.log(db)
+    // VueRouter
+    Vue.use(VueRouter)
 
+    const router = new VueRouter({
+      routes: [
+        {
+          path: '/', redirect: '/tasks'
+        },
+        {
+          name: 'tasks',
+          path: '/tasks',
+          component: AddTaskComponent
+        },
+        {
+          name: 'charts',
+          path: '/charts',
+          component: ChartsComponent
+        },
+        {
+          path: '*',
+          redirect: '/tasks'
+        }
+      ]
+    })
+
+    // Vue
     const vm = new Vue({
       el: '#app',
-      data: data,
+      data,
       firebase: {
         tasks: tasksRef
-        // tasks: {
-        //   source: db.ref('tasks'),
-        //   // Optional, allows you to handle any errors.
-        //   cancelCallback(err) {
-        //     console.error(err);
-        //   },
-        //   readyCallback: function () {
-        //     console.log(tasks);
-        //   }
-        // }
       },
+      router,
       methods: {
-        addBook: function () {
+        addTask: function () {
           tasksRef.push(this.newTask);
-          this.newTask.comment = '';
+          this.newTask.id = '';
           this.newTask.type = '';
+          this.newTask.reporter_id = '';
+          this.newTask.created_date = '';
+          this.newTask.completed_date = '';
+          this.newTask.quantity = '';
+          this.newTask.comment = '';
         },
-        removeBook: function (book) {
+        editTask: function(task) {
+          // Set post values to form
+          this.newTask = task
+        },
+        updateTask: function(task) {
+          const childKey = task['.key']
+          // Firebase doesn't accept speacial chars as value
+          // so delete `.key` property from the post
+          delete task['.key']
+          // Set the updated post value
+          this.$firebaseRefs.tasks.child(childKey).set(task)
+        }, 
+        removeTask: function (task) {
           tasksRef.child(task['.key']).remove()
           // toastr.success('Book removed successfully')
         }
