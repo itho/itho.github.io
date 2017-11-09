@@ -65,6 +65,7 @@
       <v-content>
         <v-container fluid>
           <router-view></router-view>
+          <br>
           <data-component :tasks="tasks"></data-component>
         </v-container>
       </v-content>
@@ -83,7 +84,6 @@
     <div>
       <v-card>
         <v-card-title>
-          
           <v-spacer></v-spacer>
           <v-text-field
             append-icon="search"
@@ -149,7 +149,56 @@
 
   <script type="text/x-template" id="add-task-component-template">
     <div>
-      <h1>add task</h1>
+      <v-card>
+        <v-card-title primary-title>
+          <div>
+            <h3 class="headline mb-0">New Task</h3>
+            <!-- <div>Located two hours south of Sydney in the </div> -->
+          </div>
+        </v-card-title>
+        <v-card-text>
+          <v-container fluid>
+            <v-form v-model="valid">
+              <v-layout row>
+                <v-flex xs2>
+                  <v-text-field
+                    label="Name"
+                    v-model="name"
+                    :rules="nameRules"
+                    :counter="10"
+                    required
+                  ></v-text-field>
+                </v-flex>&nbsp;
+                <v-flex xs2>
+                  <v-text-field
+                    label="E-mail"
+                    v-model="email"
+                    :rules="emailRules"
+                    required
+                  ></v-text-field>
+                </v-flex>
+              </v-layout>
+              <!-- <v-layout row>
+                <v-flex xs4>
+                  <v-subheader>Normal with hint text/label</v-subheader>
+                </v-flex>
+                <v-flex xs8>
+                  <v-text-field
+                    label="E-mail"
+                    v-model="email"
+                    :rules="emailRules"
+                    required
+                  ></v-text-field>
+                </v-flex>
+              </v-layout> -->
+            </v-form>
+          </v-container>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn flat color="primary">Add</v-btn>
+          <!-- <v-btn flat color="orange">Explore</v-btn> -->
+        </v-card-actions>
+      </v-card>
     </div>
   </script>
 
@@ -215,7 +264,19 @@
     Vue.component('add-task-component', {
       template: '#add-task-component-template',
       data() {
-        return {}
+        return {
+          valid: false,
+          name: '',
+          nameRules: [
+            (v) => !!v || 'Name is required',
+            (v) => v.length <= 10 || 'Name must be less than 10 characters'
+          ],
+          email: '',
+          emailRules: [
+            (v) => !!v || 'E-mail is required',
+            (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
+          ]
+        }
       },
       methods: {
         addTask3() {
