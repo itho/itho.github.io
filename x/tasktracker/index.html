@@ -99,7 +99,7 @@
             v-bind:search="search"
           >
           <template slot="items" scope="props">
-            <td>
+            <td :class="rowHighlight(props.item)">
               <v-edit-dialog
                 lazy
               > {{ props.item.id }}
@@ -113,12 +113,12 @@
                 ></v-text-field>
               </v-edit-dialog>
             </td>
-            <td class="text-xs-right">{{ props.item.type }}</td>
-            <td class="text-xs-right">{{ props.item.reporter_id }}</td>
-            <td class="text-xs-right">{{ props.item.created_date }}</td>
-            <td class="text-xs-right">{{ props.item.completed_date }}</td>
-            <td class="text-xs-right">{{ props.item.quantity }}</td>
-            <td class="text-xs-right">
+            <td class="text-xs-right" :class="rowHighlight(props.item)">{{ props.item.type }}</td>
+            <td class="text-xs-right" :class="rowHighlight(props.item)">{{ props.item.reporter_id }}</td>
+            <td class="text-xs-right" :class="rowHighlight(props.item)">{{ props.item.created_date }}</td>
+            <td class="text-xs-right" :class="rowHighlight(props.item)">{{ props.item.completed_date }}</td>
+            <td class="text-xs-right" :class="rowHighlight(props.item)">{{ props.item.quantity }}</td>
+            <td class="text-xs-right" :class="rowHighlight(props.item)">
               <v-edit-dialog
                 @open="tmp = props.item.comment"
                 @save="props.item.comment = tmp || props.item.comment"
@@ -254,8 +254,13 @@
       }
     },
       methods: {
-        addTask2() {
-          return false
+        rowHighlight(item) {
+          switch(item.completed_date) {
+            case '':
+              return 'orange lighten-4'
+            default:
+              return 'green lighten-4'
+          }
         }
       }
     })
