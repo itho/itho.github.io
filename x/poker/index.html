@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" rel="stylesheet">
+  <link href="https://unpkg.com/vuetify@0.15.7/dist/vuetify.min.css" rel="stylesheet">
+  <!-- Title -->
+  <title>Poker</title>
+  <style>
+    .suit-red {
+      color: red;
+    }
+    .flex-container {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-flow: row wrap;
+      justify-content: space-around;
+    }
+
+    .flex-item {
+      /*background: tomato;*/
+      background: #eee;
+      padding: 5px;
+      /*width: 200px;
+      height: 150px;*/
+      width: auto;
+      height: auto;
+      margin-top: 10px;
+      line-height: 50px;
+      color: black;
+      font-weight: bold;
+      font-size: 1.5em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-toolbar app dark class="">
+        <v-toolbar-title>Poker</v-toolbar-title>
+      </v-toolbar>
+      <v-content fluid>
+        <main>
+          <v-layout>
+            <v-flex xs12 sm6 offset-sm3>
+              <v-container text-xs-center>
+                <v-btn @click="shuffleDeck()">shuffle</v-btn>
+                <v-btn @click="dealDeck()">deal</v-btn>
+                <v-btn @click="flop()">flop</v-btn>
+                <v-btn @click="turn()">turn</v-btn>
+                <v-btn @click="river()">river</v-btn>
+              </v-container>
+
+              <h5>Deck:</h5>
+              <ul class="flex-container">
+                <li v-for="(card, i) in deck" class="flex-item"><span :class="suitColor(card.suit)">{{ card.suit }}</span> {{ card.face }}</li>
+              </ul>
+            </v-flex>
+          </v-layout>
+        </main>
+      </v-content>
+    </v-app>
+  </div>
+
+  <script src="https://unpkg.com/vue@2.4.3/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuetify@0.15.7/dist/vuetify.js"></script>
+  <script>
+    let data = {
+      deck: [],
+      suits: ['♠','♥','♣','♦'],
+      faces: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
+      newCard: {
+        suit: '',
+        face: ''
+      },
+      dealer: {
+        shuffled: false,
+        dealt: false,
+        flopped: false,
+        turned: false,
+        rivered: false,
+      },
+      players: [],
+      newPlayer: {
+        name: '',
+        hand: []
+      }      
+    }
+
+    new Vue({
+      el: '#app',
+      data: data,
+      mounted: function() {
+        this.buildDeck();
+      },
+      methods: {
+        suitColor(suit) {
+          return (suit === '♥' || suit === '♦') ? 'suit-red' : 'suit-black'
+        },
+        buildDeck () {
+          for (let i = 0; i < this.suits.length; i++) {
+            for (let j = 0; j < this.faces.length; j++) {
+              this.newCard.suit = this.suits[i]
+              this.newCard.face = this.faces[j]
+              // hack to clone the card and remove references
+              this.deck.push(JSON.parse(JSON.stringify(this.newCard)))
+            }
+          }
+        },
+        shuffleDeck () {
+          let arr1 = this.deck.slice();
+          let currentIndex = arr1.length, temporaryValue, randomIndex;
+          // While there remain elements to shuffle...
+          while (0 !== currentIndex) {
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            // And swap it with the current element.
+            temporaryValue = arr1[currentIndex];
+            arr1[currentIndex] = arr1[randomIndex];
+            arr1[randomIndex] = temporaryValue;
+          }
+          this.deck = arr1;
+          this.dealer.shuffled = true;
+        },
+        dealDeck () {
+          if (!this.dealer.shuffled) {
+            alert('Shuffle the deck before you deal!')
+            return
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>
