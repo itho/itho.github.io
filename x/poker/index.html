@@ -10,9 +10,6 @@
   <!-- Title -->
   <title>Poker</title>
   <style>
-    .suit-red {
-      color: red;
-    }
     .flex-container {
       padding: 0;
       margin: 0;
@@ -28,18 +25,45 @@
 
     .flex-item {
       /*background: tomato;*/
-      background: #eee;
-      padding: 5px;
       /*width: 200px;
       height: 150px;*/
-      width: auto;
-      height: auto;
-      margin-top: 10px;
-      line-height: 50px;
+      text-align: center;
+    }
+
+    .card {
+      width: 50px;
+      height: 80px;
+      background: #eee;
+      margin: 5px;
+      /*margin-top: 10px;
+      line-height: 50px;*/
       color: black;
       font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .card > .suit {
+      text-align: left;
+      padding-left: 6px;
+    }
+
+    .card > .face {
       font-size: 1.5em;
-      text-align: center;
+    }
+
+    .card > .back {
+      width: 100%;
+      height: 100%;
+      padding: 3px;
+      background: cornflowerblue;
+      background-clip: content-box;
+      line-height: 80px;
+      vertical-align: middle;
+      color: white;
+    }
+
+    .suit-red {
+      color: red;
     }
   </style>
 </head>
@@ -63,7 +87,13 @@
 
               <h5>Deck:</h5>
               <ul class="flex-container">
-                <li v-for="(card, i) in deck" class="flex-item"><span :class="suitColor(card.suit)">{{ card.suit }}</span> {{ card.face }}</li>
+                <li class="flex-item card">
+                  <div class="back">$</div>
+                </li>
+                <li v-for="(card, i) in deck" class="flex-item card">
+                  <div class="suit" :class="suitColor(card.suit)">{{ card.suit }}</div> 
+                  <div class="face">{{ card.face }}</div>
+                </li>
               </ul>
             </v-flex>
           </v-layout>
