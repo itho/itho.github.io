@@ -10,6 +10,10 @@
   <!-- Title -->
   <title>Poker</title>
   <style>
+    .add-user {
+      padding-top: 20px !important;
+    }
+
     .flex-container {
       padding: 0;
       margin: 0;
@@ -42,12 +46,12 @@
       font-size: 1.2em;
     }
 
-    .card > .suit {
+    .card .suit {
       text-align: left;
       padding-left: 6px;
     }
 
-    .card > .face {
+    .card .face {
       font-size: 1.5em;
     }
 
@@ -72,6 +76,21 @@
     <v-app>
       <v-toolbar app dark class="">
         <v-toolbar-title>Poker</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
+        <v-text-field
+          name="input-1-3"
+          label="Hint Text"
+          single-line
+          dark
+          class="add-user"
+          v-model="newPlayer.name"
+          @keyup.native.enter="addPlayer()"
+        ></v-text-field>
+        <v-btn icon @click="addPlayer()">
+          <v-icon>add</v-icon>
+        </v-btn>
       </v-toolbar>
       <v-content fluid>
         <main>
@@ -85,14 +104,22 @@
                 <v-btn @click="river()">river</v-btn>
               </v-container>
 
+              <h5>Players:</h5>
+              <v-container v-for="(player, i) in players">
+                {{ player.name }}
+              </v-container>
+
               <h5>Deck:</h5>
               <ul class="flex-container">
                 <li class="flex-item card">
                   <div class="back">$</div>
                 </li>
                 <li v-for="(card, i) in deck" class="flex-item card">
-                  <div class="suit" :class="suitColor(card.suit)">{{ card.suit }}</div> 
-                  <div class="face">{{ card.face }}</div>
+                  <div v-if="card.downcard" class="back">$</div>
+                  <div v-else>
+                    <div class="suit" :class="getSuitColor(card.value)">{{ getSuitSymbol(card.value) }}</div> 
+                    <div class="face">{{ getRank(card.value) }}</div>
+                  </div>
                 </li>
               </ul>
             </v-flex>
@@ -115,18 +142,19 @@
   <script>
     let data = {
       deck: [],
-      suits: ['♠','♥','♣','♦'],
-      faces: ['A','K','Q','J','10','9','8','7','6','5','4','3','2'],
+      suits: ['s','h','c','d'],
+      ranks: ['A','K','Q','J','T','9','8','7','6','5','4','3','2'],
       newCard: {
-        suit: '',
-        face: ''
+        downcard: false,
+        value: ''
       },
       dealer: {
-        shuffled: false,
-        dealt: false,
-        flopped: false,
-        turned: false,
-        rivered: false,
+        hand: [],
+        hasShuffled: false,
+        hasDealt: false,
+        hasFlopped: false,
+        hasTurned: false,
+        hasRivered: false
       },
       players: [],
       newPlayer: {
@@ -142,37 +170,61 @@
         this.buildDeck();
       },
       methods: {
-        suitColor(suit) {
-          return (suit === '♥' || suit === '♦') ? 'suit-red' : 'suit-black'
+        addPlayer() {
+          this.players.push(JSON.parse(JSON.stringify(this.newPlayer)))
+        },
+        getRank(value) {
+          rank = value.charAt(0)
+          return (rank === 'T') ? '10' : rank
+        },
+        getSuitColor(value) {
+          suit = value.charAt(1)
+          return (suit === 'h' || suit === 'd') ? 'suit-red' : 'suit-black'
+        },
+        getSuitSymbol(value) {
+          suit = value.charAt(1)
+          switch (suit) {
+            case 's':
+              return '♠'
+            case 'h':
+              return '♥'
+            case 'c':
+              return '♣'
+            case 'd':
+              return '♦'
+          }
         },
         buildDeck () {
           for (let i = 0; i < this.suits.length; i++) {
-            for (let j = 0; j < this.faces.length; j++) {
-              this.newCard.suit = this.suits[i]
-              this.newCard.face = this.faces[j]
+            for (let j = 0; j < this.ranks.length; j++) {
+              this.newCard.value = this.ranks[j] + this.suits[i]
               // hack to clone the card and remove references
               this.deck.push(JSON.parse(JSON.stringify(this.newCard)))
             }
           }
         },
         shuffleDeck () {
-          let arr1 = this.deck.slice();
-          let currentIndex = arr1.length, temporaryValue, randomIndex;
+          let arr1 = this.deck.slice()
+          let currentIndex = arr1.length, temporaryValue, randomIndex
           // While there remain elements to shuffle...
           while (0 !== currentIndex) {
             // Pick a remaining element...
-            randomIndex = Math.floor(Math.random() * currentIndex);
+            randomIndex = Math.floor(Math.random() * currentIndex)
             currentIndex -= 1;
             // And swap it with the current element.
-            temporaryValue = arr1[currentIndex];
-            arr1[currentIndex] = arr1[randomIndex];
-            arr1[randomIndex] = temporaryValue;
+            temporaryValue = arr1[currentIndex]
+            arr1[currentIndex] = arr1[randomIndex]
+            arr1[randomIndex] = temporaryValue
           }
           this.deck = arr1;
-          this.dealer.shuffled = true;
+          this.dealer.hasShuffled = true;
         },
         dealDeck () {
-          if (!this.dealer.shuffled) {
+          if (this.players.length == 0) {
+            alert('Add players before you deal!')
+            return
+          }
+          if (!this.dealer.hasShuffled) {
             alert('Shuffle the deck before you deal!')
             return
           }
