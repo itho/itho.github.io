@@ -34,7 +34,7 @@
       text-align: center;
     }
 
-    .card {
+    .playing-card {
       width: 50px;
       height: 80px;
       background: #eee;
@@ -46,16 +46,16 @@
       font-size: 1.2em;
     }
 
-    .card .suit {
+    .playing-card .suit {
       text-align: left;
       padding-left: 6px;
     }
 
-    .card .face {
+    .playing-card .face {
       font-size: 1.5em;
     }
 
-    .card > .back {
+    .playing-card > .back {
       width: 100%;
       height: 100%;
       padding: 3px;
@@ -76,12 +76,11 @@
     <v-app>
       <v-toolbar app dark class="">
         <v-toolbar-title>Poker</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-spacer></v-spacer>
+        <v-spacer class="hidden-xs-only"></v-spacer>
         <v-spacer></v-spacer>
         <v-text-field
           name="input-1-3"
-          label="Hint Text"
+          label="Add Players"
           single-line
           dark
           class="add-user"
@@ -95,7 +94,7 @@
       <v-content fluid>
         <main>
           <v-layout>
-            <v-flex xs12 sm6 offset-sm3>
+            <v-flex xs12 sm8 offset-sm2 md6 offset-md3>
               <v-container text-xs-center>
                 <v-btn @click="shuffleDeck()">shuffle</v-btn>
                 <v-btn @click="dealDeck()">deal</v-btn>
@@ -104,17 +103,40 @@
                 <v-btn @click="river()">river</v-btn>
               </v-container>
 
-              <h5>Players:</h5>
-              <v-container v-for="(player, i) in players">
-                {{ player.name }}
-              </v-container>
-
-              <h5>Deck:</h5>
+              <h5>Dealer:</h5>
               <ul class="flex-container">
-                <li class="flex-item card">
+                <li class="flex-item card playing-card">
                   <div class="back">$</div>
                 </li>
-                <li v-for="(card, i) in deck" class="flex-item card">
+              </ul>
+              <ul class="flex-container">
+                <li v-for="(card, i) in dealer.hand" class="flex-item card playing-card">
+                  <div v-if="card.downcard" class="back">$</div>
+                  <div v-else>
+                    <div class="suit" :class="getSuitColor(card.value)">{{ getSuitSymbol(card.value) }}</div> 
+                    <div class="face">{{ getRank(card.value) }}</div>
+                  </div>
+                </li>
+              </ul>
+
+              <h5>Players:</h5>
+              <div v-for="(player, i) in players">
+                <v-card>
+                  <v-card-title primary-title>
+                    <div>
+                      <h3 class="headline mb-0">{{ ucfirst(player.name) }}</h3>
+                      <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
+                    </div>
+                  </v-card-title>
+                </v-card>
+              </div>
+
+              <h5 v-if="debug">Deck:</h5>
+              <ul v-if="debug" class="flex-container">
+                <li class="flex-item card playing-card">
+                  <div class="back">$</div>
+                </li>
+                <li v-for="(card, i) in deck" class="flex-item card playing-card">
                   <div v-if="card.downcard" class="back">$</div>
                   <div v-else>
                     <div class="suit" :class="getSuitColor(card.value)">{{ getSuitSymbol(card.value) }}</div> 
@@ -141,6 +163,7 @@
   </script> -->
   <script>
     let data = {
+      debug: true,
       deck: [],
       suits: ['s','h','c','d'],
       ranks: ['A','K','Q','J','T','9','8','7','6','5','4','3','2'],
@@ -149,7 +172,11 @@
         value: ''
       },
       dealer: {
-        hand: [],
+        hand: [
+          // { downcard: false, value: 'Ac' },
+          // { downcard: false, value: '9d' },
+          // { downcard: false, value: '3s' }
+        ],
         hasShuffled: false,
         hasDealt: false,
         hasFlopped: false,
@@ -228,6 +255,9 @@
             alert('Shuffle the deck before you deal!')
             return
           }
+        },
+        ucfirst(str) {
+          return str.charAt(0).toUpperCase() + str.slice(1)
         }
       }
     })
