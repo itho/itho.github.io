@@ -10,7 +10,7 @@
   <!-- Title -->
   <title>Poker</title>
   <style>
-    .add-user {
+    .add-player {
       padding-top: 20px !important;
     }
 
@@ -28,9 +28,6 @@
     }
 
     .flex-item {
-      /*background: tomato;*/
-      /*width: 200px;
-      height: 150px;*/
       text-align: center;
     }
 
@@ -39,8 +36,6 @@
       height: 80px;
       background: #eee;
       margin: 5px;
-      /*margin-top: 10px;
-      line-height: 50px;*/
       color: black;
       font-weight: bold;
       font-size: 1.2em;
@@ -83,7 +78,7 @@
           label="Add Players"
           single-line
           dark
-          class="add-user"
+          class="add-player"
           v-model="newPlayer.name"
           @keyup.native.enter="addPlayer()"
         ></v-text-field>
@@ -125,7 +120,7 @@
                   <v-card-title primary-title>
                     <div>
                       <h3 class="headline mb-0">{{ ucfirst(player.name) }}</h3>
-                      <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
+                      <div>...</div>
                     </div>
                   </v-card-title>
                 </v-card>
@@ -169,23 +164,21 @@
       ranks: ['A','K','Q','J','T','9','8','7','6','5','4','3','2'],
       newCard: {
         downcard: false,
-        value: ''
+        value: null
       },
       dealer: {
-        hand: [
-          // { downcard: false, value: 'Ac' },
-          // { downcard: false, value: '9d' },
-          // { downcard: false, value: '3s' }
-        ],
-        hasShuffled: false,
-        hasDealt: false,
-        hasFlopped: false,
-        hasTurned: false,
-        hasRivered: false
+        hand: [],
+        flags: { 
+          hasShuffled: false,
+          hasDealt: false,
+          hasFlopped: false,
+          hasTurned: false,
+          hasRivered: false
+        }
       },
       players: [],
       newPlayer: {
-        name: '',
+        name: null,
         hand: []
       }      
     }
@@ -194,11 +187,12 @@
       el: '#app',
       data: data,
       mounted: function() {
-        this.buildDeck();
+        this.buildDeck()
       },
       methods: {
         addPlayer() {
           this.players.push(JSON.parse(JSON.stringify(this.newPlayer)))
+          this.newPlayer.name = null
         },
         getRank(value) {
           rank = value.charAt(0)
@@ -244,17 +238,20 @@
             arr1[randomIndex] = temporaryValue
           }
           this.deck = arr1;
-          this.dealer.hasShuffled = true;
+          this.dealer.flags.hasShuffled = true;
         },
         dealDeck () {
           if (this.players.length == 0) {
             alert('Add players before you deal!')
             return
           }
-          if (!this.dealer.hasShuffled) {
+          if (!this.dealer.flags.hasShuffled) {
             alert('Shuffle the deck before you deal!')
             return
           }
+          this.newCard.value = this.deck[0].value
+          this.deck.shift()
+          this.dealer.hand.push(JSON.parse(JSON.stringify(this.newCard)))
         },
         ucfirst(str) {
           return str.charAt(0).toUpperCase() + str.slice(1)
