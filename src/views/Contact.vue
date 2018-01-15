@@ -1,53 +1,48 @@
 <template>
-  <div>
-    <!-- <v-flex xs12 class="my-3">
-      <div class="text-xs-center">
-        <h2 class="headline">What we're about...</h2>
-      </div>
-    </v-flex> -->
-    <v-flex xs12>
-      <v-container grid-list-xl>
-        <v-layout row wrap align-center>
-          <v-flex xs12>
-            <v-card class="elevation-0 transparent">
-              <!-- <v-card-text class="text-xs-center">
-                <v-icon x-large class="blue--text text--lighten-2">color_lens</v-icon>
-              </v-card-text> -->
-              <v-card-title primary-title class="layout justify-center">
-                <div class="headline text-xs-center">Contact us...</div>
-              </v-card-title>
-              <v-card-text>
-                <p class="text-xs-center">Professional web and cross platform mobile development.<br>
-                Please get in contact if you would like to discuss any opportunities.</p>
-                <p>Email: <a href="mailto:contact@itho.co">contact@itho.co</a></p>
-                <p class="text-xs-center">
-                  <a href="https://twitter.com/ieuauauauauauan"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                  <a href="https://www.linkedin.com/in/ieuan-thomas-187a5576"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                  <a href="https://www.facebook.com/ieuan"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                  <a href="https://plus.google.com/u/0/111160770619114139671"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                  <a href="https://github.com/itho/"><i class="fa fa-github" aria-hidden="true"></i></a>
-                </p>
-              </v-card-text>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </v-flex>
-  </div>
+  <v-container fluid>
+    <v-layout row wrap text-xs-center>
+      <v-flex xs12 sm6 offset-sm3>
+        <v-card>
+          <v-card-title primary-title class="layout justify-center">
+            <div class="headline">Contact us...</div>
+          </v-card-title>
+          <v-card-text>
+            <p>Professional web and cross platform mobile development.<br>
+            Please get in contact if you would like to discuss any opportunities.</p>
+            <p>Email: <a href="mailto:contact@itho.co">contact@itho.co</a></p>
+            
+            <v-btn icon id="btn-twitter" href="https://twitter.com/ieuauauauauauan">
+              <v-icon class="fab fa-twitter"></v-icon>
+            </v-btn>
+            <v-btn icon id="btn-linkedin" href="https://www.linkedin.com/in/ieuan-thomas-187a5576">
+              <v-icon class="fab fa-linkedin"></v-icon>
+            </v-btn>
+            <v-btn icon id="btn-facebook" href="https://www.facebook.com/ieuan">
+              <v-icon class="fab fa-facebook"></v-icon>
+            </v-btn>
+            <v-btn icon id="btn-google-plus" href="https://plus.google.com/u/0/111160770619114139671">
+              <v-icon class="fab fa-google-plus"></v-icon>
+            </v-btn>
+            <v-btn icon id="btn-github" href="https://github.com/itho/">
+              <v-icon class="fab fa-github"></v-icon>
+            </v-btn>
+          </v-card-text>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
-<style>
-  .fa {
+<style scoped>
+  .fab {
     font-size: 24pt;
     padding-left: 10px;
     padding-right: 10px;
-    color: slategrey;
+    color: slategrey !important;
   }
-  .fa-twitter:hover{ color: #1da1f2; }
-  .fa-linkedin:hover{ color: #007bb6; }
-  .fa-facebook:hover{ color: #3b5998; }
-  .fa-google-plus:hover{ color: #d34836; }
-  .fa-github:hover{ color: #000000; }
+  #btn-twitter:hover > div > i { color: #1da1f2 !important; }
+  #btn-linkedin:hover > div > i { color: #007bb6 !important; }
+  #btn-facebook:hover > div > i { color: #3b5998 !important; }
+  #btn-google-plus:hover > div > i { color: #d34836 !important; }
+  #btn-github:hover > div > i { color: #000000 !important; }
 </style>
-
-<script></script>

@@ -136,6 +136,7 @@
         }
       },
       refresh () {
+        let self = this
         this.randomize()
         for (let i = 0; i < document.querySelector('#poly svg').childNodes.length; i++) {
           let polygon = document.querySelector('#poly svg').childNodes[i]
@@ -146,7 +147,7 @@
           animate.setAttribute('to', this.points[polygon.point1].x + ',' + this.points[polygon.point1].y + ' ' + this.points[polygon.point2].x + ',' + this.points[polygon.point2].y + ' ' + this.points[polygon.point3].x + ',' + this.points[polygon.point3].y)
           animate.beginElement()
         }
-        this.refreshTimeout = setTimeout(function () { this.refresh() }, this.refreshDuration)
+        this.refreshTimeout = setTimeout(function () { self.refresh() }, this.refreshDuration)
       },
       onResize () {
         document.querySelector('#poly svg').remove()

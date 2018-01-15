@@ -35,22 +35,31 @@
 
     <v-content>
       <poly-background/>
-      <v-container fluid>
-        <v-slide-x-transition mode="out-in">
-          <!-- <v-layout column align-center>
-            <img src="/static/v.png" alt="Vuetify.js" class="mb-5" />
-            <blockquote>
-              &#8220;First, solve the problem. Then, write the code.&#8221;
-              <footer>
-                <small>
-                  <em>&mdash;John Johnson</em>
-                </small>
-              </footer>
-            </blockquote>
-          </v-layout> -->
-          <router-view/>
-        </v-slide-x-transition>
-      </v-container>
+      <section>
+        <v-parallax src="assets/hero.jpeg" height="600">
+          <v-layout
+            column
+            align-center
+            justify-center
+            class="white--text"
+          >
+            <h1 class="white--text mb-2 display-3">itho</h1>
+            <div class="headline mb-3 text-xs-center">Web &amp; Mobile Solutions.</div>
+            <v-btn
+              class="blue mt-5"
+              dark
+              large
+              :to="{name: 'contact'}"
+            >
+              Get In Touch!
+            </v-btn>
+          </v-layout>
+        </v-parallax>
+      </section>
+      
+      <v-slide-x-transition mode="out-in">
+        <router-view/>
+      </v-slide-x-transition>
     </v-content>
     
     <v-footer app absolute>
