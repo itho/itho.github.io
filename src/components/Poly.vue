@@ -10,140 +10,149 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    z-index: -1;
+    z-index: 0;
   }
 </style>
 
 <script>
-  var refreshDuration = 10000;
-  var refreshTimeout;
-  var numPointsX;
-  var numPointsY;
-  var unitWidth;
-  var unitHeight;
-  var points;
-
-  $(document).ready(init);
-  $(window).resize(onResize);
-
-  function init()
-  {
-      var viewportHeight;
-      var viewportWidth;
-
-      if (document.compatMode === 'BackCompat') {
-          viewportHeight = document.body.clientHeight;
-          viewportWidth = document.body.clientWidth;
-      } else {
-          viewportHeight = document.documentElement.clientHeight;
-          viewportWidth = document.documentElement.clientWidth;
+  export default {
+    data () {
+      return {
+        refreshDuration: 10000,
+        refreshTimeout: null,
+        numPointsX: null,
+        numPointsY: null,
+        unitWidth: null,
+        unitHeight: null,
+        unitSize: null,
+        points: [],
+        viewportHeight: null,
+        viewportWidth: null
       }
+    },
+    mounted () {
+      this.init()
+      window.addEventListener('resize', this.onResize)
+    },
+    methods: {
+      init () {
+        if (document.compatMode === 'BackCompat') {
+          this.viewportHeight = document.body.clientHeight
+          this.viewportWidth = document.body.clientWidth
+        } else {
+          this.viewportHeight = document.documentElement.clientHeight
+          this.viewportWidth = document.documentElement.clientWidth
+        }
 
-      var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svg.setAttribute('width',viewportWidth);
-      svg.setAttribute('height',viewportHeight);
-      document.querySelector('#poly').appendChild(svg);
+        let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+        svg.setAttribute('width', this.viewportWidth)
+        svg.setAttribute('height', this.viewportHeight)
+        document.querySelector('#poly').appendChild(svg)
 
-      var unitSize = (window.innerWidth+window.innerHeight)/20;
-      numPointsX = Math.ceil(window.innerWidth/unitSize)+1;
-      numPointsY = Math.ceil(window.innerHeight/unitSize)+1;
-      unitWidth = Math.ceil(window.innerWidth/(numPointsX-1));
-      unitHeight = Math.ceil(window.innerHeight/(numPointsY-1));
+        this.unitSize = (window.innerWidth + window.innerHeight) / 20
+        this.numPointsX = Math.ceil(window.innerWidth / this.unitSize) + 1
+        this.numPointsY = Math.ceil(window.innerHeight / this.unitSize) + 1
+        this.unitWidth = Math.ceil(window.innerWidth / (this.numPointsX - 1))
+        this.unitHeight = Math.ceil(window.innerHeight / (this.numPointsY - 1))
 
-      points = [];
+        this.points = []
 
-      for(var y = 0; y < numPointsY; y++) {
-          for(var x = 0; x < numPointsX; x++) {
-              points.push({x:unitWidth*x, y:unitHeight*y, originX:unitWidth*x, originY:unitHeight*y});
+        for (let y = 0; y < this.numPointsY; y++) {
+          for (let x = 0; x < this.numPointsX; x++) {
+            this.points.push({
+              x: this.unitWidth * x,
+              y: this.unitHeight * y,
+              originX: this.unitWidth * x,
+              originY: this.unitHeight * y
+            })
           }
-      }
+        }
 
-      randomize();
+        this.randomize()
 
-      for(var i = 0; i < points.length; i++) {
-          if(points[i].originX != unitWidth*(numPointsX-1) && points[i].originY != unitHeight*(numPointsY-1)) {
-              var topLeftX = points[i].x;
-              var topLeftY = points[i].y;
-              var topRightX = points[i+1].x;
-              var topRightY = points[i+1].y;
-              var bottomLeftX = points[i+numPointsX].x;
-              var bottomLeftY = points[i+numPointsX].y;
-              var bottomRightX = points[i+numPointsX+1].x;
-              var bottomRightY = points[i+numPointsX+1].y;
+        for (let i = 0; i < this.points.length; i++) {
+          if (this.points[i].originX !== this.unitWidth * (this.numPointsX - 1) && this.points[i].originY !== this.unitHeight * (this.numPointsY - 1)) {
+            let topLeftX = this.points[i].x
+            let topLeftY = this.points[i].y
+            let topRightX = this.points[i + 1].x
+            let topRightY = this.points[i + 1].y
+            let bottomLeftX = this.points[i + this.numPointsX].x
+            let bottomLeftY = this.points[i + this.numPointsX].y
+            let bottomRightX = this.points[i + this.numPointsX + 1].x
+            let bottomRightY = this.points[i + this.numPointsX + 1].y
 
-              var rando = Math.floor(Math.random()*2);
+            let rando = Math.floor(Math.random() * 2)
 
-              for(var n = 0; n < 2; n++) {
-                  var polygon = document.createElementNS(svg.namespaceURI, 'polygon');
+            for (let n = 0; n < 2; n++) {
+              let polygon = document.createElementNS(svg.namespaceURI, 'polygon')
 
-                  if(rando==0) {
-                      if(n==0) {
-                          polygon.point1 = i;
-                          polygon.point2 = i+numPointsX;
-                          polygon.point3 = i+numPointsX+1;
-                          polygon.setAttribute('points',topLeftX+','+topLeftY+' '+bottomLeftX+','+bottomLeftY+' '+bottomRightX+','+bottomRightY);
-                      } else if(n==1) {
-                          polygon.point1 = i;
-                          polygon.point2 = i+1;
-                          polygon.point3 = i+numPointsX+1;
-                          polygon.setAttribute('points',topLeftX+','+topLeftY+' '+topRightX+','+topRightY+' '+bottomRightX+','+bottomRightY);
-                      }
-                  } else if(rando==1) {
-                      if(n==0) {
-                          polygon.point1 = i;
-                          polygon.point2 = i+numPointsX;
-                          polygon.point3 = i+1;
-                          polygon.setAttribute('points',topLeftX+','+topLeftY+' '+bottomLeftX+','+bottomLeftY+' '+topRightX+','+topRightY);
-                      } else if(n==1) {
-                          polygon.point1 = i+numPointsX;
-                          polygon.point2 = i+1;
-                          polygon.point3 = i+numPointsX+1;
-                          polygon.setAttribute('points',bottomLeftX+','+bottomLeftY+' '+topRightX+','+topRightY+' '+bottomRightX+','+bottomRightY);
-                      }
-                  }
-                  polygon.setAttribute('fill','rgba(0,0,0,'+(Math.random()/3)+')');
-                  var animate = document.createElementNS('http://www.w3.org/2000/svg','animate');
-                  animate.setAttribute('fill','freeze');
-                  animate.setAttribute('attributeName','points');
-                  animate.setAttribute('dur',refreshDuration+'ms');
-                  animate.setAttribute('calcMode','linear');
-                  polygon.appendChild(animate);
-                  svg.appendChild(polygon);
+              if (rando === 0) {
+                if (n === 0) {
+                  polygon.point1 = i
+                  polygon.point2 = i + this.numPointsX
+                  polygon.point3 = i + this.numPointsX + 1
+                  polygon.setAttribute('points', topLeftX + ',' + topLeftY + ' ' + bottomLeftX + ',' + bottomLeftY + ' ' + bottomRightX + ',' + bottomRightY)
+                } else if (n === 1) {
+                  polygon.point1 = i
+                  polygon.point2 = i + 1
+                  polygon.point3 = i + this.numPointsX + 1
+                  polygon.setAttribute('points', topLeftX + ',' + topLeftY + ' ' + topRightX + ',' + topRightY + ' ' + bottomRightX + ',' + bottomRightY)
+                }
+              } else if (rando === 1) {
+                if (n === 0) {
+                  polygon.point1 = i
+                  polygon.point2 = i + this.numPointsX
+                  polygon.point3 = i + 1
+                  polygon.setAttribute('points', topLeftX + ',' + topLeftY + ' ' + bottomLeftX + ',' + bottomLeftY + ' ' + topRightX + ',' + topRightY)
+                } else if (n === 1) {
+                  polygon.point1 = i + this.numPointsX
+                  polygon.point2 = i + 1
+                  polygon.point3 = i + this.numPointsX + 1
+                  polygon.setAttribute('points', bottomLeftX + ',' + bottomLeftY + ' ' + topRightX + ',' + topRightY + ' ' + bottomRightX + ',' + bottomRightY)
+                }
               }
+              polygon.setAttribute('fill', 'rgba(0,0,0,' + (Math.random() / 3) + ')')
+              let animate = document.createElementNS('http://www.w3.org/2000/svg', 'animate')
+              animate.setAttribute('fill', 'freeze')
+              animate.setAttribute('attributeName', 'points')
+              animate.setAttribute('dur', this.refreshDuration + 'ms')
+              animate.setAttribute('calcMode', 'linear')
+              polygon.appendChild(animate)
+              svg.appendChild(polygon)
+            }
           }
+        }
+
+        this.refresh()
+      },
+      randomize () {
+        for (let i = 0; i < this.points.length; i++) {
+          if (this.points[i].originX !== 0 && this.points[i].originX !== this.unitWidth * (this.numPointsX - 1)) {
+            this.points[i].x = this.points[i].originX + Math.random() * this.unitWidth - this.unitWidth / 2
+          }
+          if (this.points[i].originY !== 0 && this.points[i].originY !== this.unitHeight * (this.numPointsY - 1)) {
+            this.points[i].y = this.points[i].originY + Math.random() * this.unitHeight - this.unitHeight / 2
+          }
+        }
+      },
+      refresh () {
+        this.randomize()
+        for (let i = 0; i < document.querySelector('#poly svg').childNodes.length; i++) {
+          let polygon = document.querySelector('#poly svg').childNodes[i]
+          let animate = polygon.childNodes[0]
+          if (animate.getAttribute('to')) {
+            animate.setAttribute('from', animate.getAttribute('to'))
+          }
+          animate.setAttribute('to', this.points[polygon.point1].x + ',' + this.points[polygon.point1].y + ' ' + this.points[polygon.point2].x + ',' + this.points[polygon.point2].y + ' ' + this.points[polygon.point3].x + ',' + this.points[polygon.point3].y)
+          animate.beginElement()
+        }
+        this.refreshTimeout = setTimeout(function () { this.refresh() }, this.refreshDuration)
+      },
+      onResize () {
+        document.querySelector('#poly svg').remove()
+        clearTimeout(this.refreshTimeout)
+        this.init()
       }
-
-      refresh();
-  }
-
-  function randomize() {
-      for(var i = 0; i < points.length; i++) {
-          if(points[i].originX != 0 && points[i].originX != unitWidth*(numPointsX-1)) {
-              points[i].x = points[i].originX + Math.random()*unitWidth-unitWidth/2;
-          }
-          if(points[i].originY != 0 && points[i].originY != unitHeight*(numPointsY-1)) {
-              points[i].y = points[i].originY + Math.random()*unitHeight-unitHeight/2;
-          }
-      }
-  }
-
-  function refresh() {
-      randomize();
-      for(var i = 0; i < document.querySelector('#poly svg').childNodes.length; i++) {
-          var polygon = document.querySelector('#poly svg').childNodes[i];
-          var animate = polygon.childNodes[0];
-          if(animate.getAttribute('to')) {
-              animate.setAttribute('from',animate.getAttribute('to'));
-          }
-          animate.setAttribute('to',points[polygon.point1].x+','+points[polygon.point1].y+' '+points[polygon.point2].x+','+points[polygon.point2].y+' '+points[polygon.point3].x+','+points[polygon.point3].y);
-          animate.beginElement();
-      }
-      refreshTimeout = setTimeout(function() {refresh();}, refreshDuration);
-  }
-
-  function onResize() {
-      document.querySelector('#poly svg').remove();
-      clearTimeout(refreshTimeout);
-      init();
+    }
   }
 </script>
