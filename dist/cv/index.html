@@ -15,6 +15,9 @@
       font-size: 8pt;
       text-align: left;
     }
+    b {
+      font-weight: 600;
+    }
     page {
       background: white;
       display: block;
@@ -32,6 +35,18 @@
         box-shadow: 0;
       }
     }
+    .flexbox-container {
+      display: flex;
+      width: 100%;
+    }
+    .flexbox-item {
+      order: 1;
+      flex: 1;
+      flex-basis: auto;
+    }
+    .mono {
+      font-family: 'Roboto Mono', monospace;
+    }
     /* common */
     #banner {
       height: 10px;
@@ -41,9 +56,6 @@
     #content {
       margin-top: -10px;
       padding: 1cm;
-    }
-    .mono {
-      font-family: 'Roboto Mono', monospace;
     }
     th {
       overflow: visible;
@@ -55,7 +67,7 @@
     }
     ul {
       list-style-type: none;
-      -webkit-padding-start: 50px;
+      -webkit-padding-start: 30px;
     }
     li:before {
       content: "-";
@@ -70,7 +82,13 @@
       margin-top: 0px;
       font-size: 3em;
     }
-    /* row-1 */
+    #row-2 {
+      margin-bottom: 10px;
+    }
+    #row-2 td:nth-child(1) {
+      color: #555;
+      width: 100px;
+    }
     #personal-details {
       width: 50%;
       float: left;
@@ -79,10 +97,6 @@
       width: 50%;
       float: right;
     }
-    #row-1 td:nth-child(1) {
-      color: #555;
-      width: 100px;
-    }
     .contact {
       text-decoration: none;
       color: inherit;
@@ -90,12 +104,11 @@
     .grades {
       color: #555;
     }
-    /* row-3 */
-    #row-3 td:nth-child(1) {
+    #row-4 td:nth-child(1) {
       color: #555;
       width: 150px;
     }
-    #row-3 p:nth-child(1) {
+    #row-4 p:nth-child(1) {
       -webkit-margin-before: 0px;
       margin-top: 0px;
     }
@@ -107,7 +120,9 @@
     <div id="content">
       <div id="row-1">
         <h1 class="title">Ieuan Thomas</h1>
-        <section id="personal-details">
+      </div>
+      <div id="row-2" class="flexbox-container">
+        <div id="personal-details" class="flexbox-item">
           <table>
             <tr>
               <th>Personal Details</th>
@@ -118,19 +133,25 @@
             </tr>
             <tr>
               <td>Email</td>
-              <td><a class="contact" href="mailto:ieuan.thomas@gmail.com">ieuan.thomas@gmail.com</a></td>
+              <td>
+                <a class="contact" href="mailto:ieuan.thomas@gmail.com">ieuan.thomas@gmail.com</a>
+              </td>
             </tr>
             <tr>
               <td>Contact</td>
-              <td><a class="contact" href="tel:00447793202319">07793 202319</a></td>
+              <td>
+                <a class="contact" href="tel:00447793202319">07793 202319</a>
+              </td>
             </tr>
             <tr>
               <td>Web</td>
-              <td><a class="contact" href="http://www.itho.co">itho.co</a></td>
+              <td>
+                <a class="contact" href="https://www.itho.co">itho.co</a>
+              </td>
             </tr>
           </table>
-        </section>
-        <section id="education">
+        </div>
+        <div id="education" class="flexbox-item">
           <table>
             <tr>
               <th>Education</th>
@@ -152,32 +173,45 @@
               <td class="grades">A level: B, B, C. GCSE: 5 A*, 5 A.</td>
             </tr>
           </table>
-        </section>
+        </div>
       </div>
-      <div id="row-2">
-        <div style="height:110px;"></div>
+      <div id="row-3">
         <section>
           <h1>Skills</h1>
           <ul>
-            <li>SQA testing &amp; methodologies (white-box system, performance, load, regression, stress and data interface testing)</li>
-            <li><b>Java</b>: Android application development including JSON api handling and mysqlite database creation/management</li>
-            <li><b>PHP</b>: view and tool creation working within the Laravel framework to create front end interfaces</li>
-            <li><b>HTML</b>, <b>CSS</b>, <b>Javascript</b>, jQuery, Sass, bootstrap experience: modifying and creating custom templates and scripts</li>
-            <li>Comfortable using and manipulating many data types through command line tools or dedicated programs: SQL, XML, JSON</li>
-            <li>Capable of setting up and working in Windows and Linux based environments</li>
-            <li>Previously installed and configured LAMP stack servers (linux, apache, mysql, php)</li>
-            <li>Experienced using and creating scripts for development tools through a command line such as bash, vim, git, ssh, apache etc.</li>
-            <li>Experienced working in an agile project/development environment</li>
+            <li>Frontend web design &amp; development (<b>HTML</b>, <b>CSS</b>, <b>Javascript</b>, Node, Webpack, Vue.js, jQuery, Sass, Bootstrap)</li>
+            <li>Backend web design &amp; development (<b>PHP</b>, Laravel, <b>Javascript</b>, Node, Webpack, Firebase, RESTful APIs)</li>
+            <li>Database use and design (OracleSQL, MySQL, Redis, Firebase, Blockchain Smart Contracts)</li>
+            <li>Experience supporting production applications including statistical analysis and tactical intervention.</li>
+            <li>Trained to use tools such as Splunk, Prometheus &amp; Grafana for realtime application analysis.</li>
+            <li>Practiced supporting applications in 'typical' hosting setups as well as in highly available multi-instance setups (Docker &amp; Kubernetes).</li>
+            <li>Proficient working in UNIX like environments as well as with using Windows/MacOS.</li>
+            <li>Background in application testing (white-box system, performance, load, regression, stress and API testing)</li>
+            <li>Development standard practices such as GIT, Continuous Integration &amp; Delivery, JIRA, Containerisation.</li>
+            <li>Experienced working in an agile project/development environment within large groups and personal projects.</li>
             <li>Confident communicating with and explaining to technical and non-technical teams the aims and dependencies of the other</li>
             <li>Proficient with several 2D and 3D graphical packages; Photoshop, GIMP, AutoCAD, Unity3D</li>
-            <li>Trained in using issue and project tracking software JIRA at user and project administrator level</li>
           </ul>
         </section>
       </div>
-      <div id="row-3">
-        <div style="height:10px;"></div>
+      <div id="row-4">
         <section>
           <h1>Employment History</h1>
+          <table>
+            <tr>
+              <th>Sky UK</th>
+              <th>Technical Operations Analyst</th>
+            </tr>
+            <tr>
+              <td class="mono">Dec 2016 - Present</td>
+              <td>
+                <p>Sky Uk is one of the leading telecommunications companies in Europe, offering access to television
+                  and broadband internet services, fixed line and mobile telephone services.</p>
+                <p>My role was in the operations team of the Networks division, responsible for all provisioning and
+                  assurance of existing and new customers</p>
+              </td>
+            </tr>
+          </table>
           <table>
             <tr>
               <th>Netsend Ltd</th>
@@ -187,29 +221,29 @@
               <td class="mono">Jun 2016 - Dec 2016</td>
               <td>
                 <p>Netsend is a document distribution company for financial documents, facilitating the generation of 
-                documents from internal accounting software/data to the online storage and multi-channel distribution. 
-                While the company is relatively small in terms of employee numbers, it serves some of the largest 
-                companies in the UK and across the world, including Adecco, the largest staffing firm in the world, the 
-                Guardian group, MSD, Twentieth Century Fox, Unisys, Vanity Fair Northern Europe and many others.</p>
+                  documents from internal accounting software/data to the online storage and multi-channel distribution. 
+                  While the company is relatively small in terms of employee numbers, it serves some of the largest 
+                  companies in the UK and across the world, including Adecco, the largest staffing firm in the world, the 
+                  Guardian group, MSD, Twentieth Century Fox, Unisys, Vanity Fair Northern Europe and many others.</p>
                 <p>Alongside previous responsibilities I have been working in many areas of developing the company 
-                product, including working with design and marketing teams to update and improve the UI/UX of our 
-                online sites.</p>
+                  product, including working with design and marketing teams to update and improve the UI/UX of our 
+                  online sites.</p>
                 <p>I was given the responsibility of making key design choices during the conceptualisation stage of 
-                the project and I was also the front-end developer working with Laravel as the framework for our 
-                sites to create the views in PHP, HTML, CSS (Sass) and Javascript (jQuery), after having the 
-                plans approved by the directors of the company.</p>
+                  the project and I was also the front-end developer working with Laravel as the framework for our 
+                  sites to create the views in PHP, HTML, CSS (Sass) and Javascript (jQuery), after having the 
+                  plans approved by the directors of the company.</p>
                 <p>Using my skills with Java in creating Android applications, I developed a complimentary app to 
-                deliver our new responsive sites to our clients on their mobile devices, using an implementation of 
-                Chrome custom tabs, which provided a professional and integrated experience.</p>
+                  deliver our new responsive sites to our clients on their mobile devices, using an implementation of 
+                  Chrome custom tabs, which provided a professional and integrated experience.</p>
                 <p>With respect to development work, I also updated the company's outgoing email templates and signatures 
-                to a responsive and more modern looking standard. The main contact at our largest client noticed these 
-                changes and requested similar work to outgoing mail we provided to their customers as part of our 
-                service to them, generating extra projects and revenue for our company.</p>
+                  to a responsive and more modern looking standard. The main contact at our largest client noticed these 
+                  changes and requested similar work to outgoing mail we provided to their customers as part of our 
+                  service to them, generating extra projects and revenue for our company.</p>
                 <p>From an analytical aspect, I have been involved more with project planning, leveraging my company 
-                knowledge against my strengths in logic and planning to ensure that we approached tasks in the best manner. 
-                These include internal meetings, where I would often need to act as an intermediary between 
-                technical and non-technical teams, but also on client conference calls where I would liase with 
-                technical and non-technical contacts to ensure all necessary information is extracted pertaining to a project.</p>
+                  knowledge against my strengths in logic and planning to ensure that we approached tasks in the best manner. 
+                  These include internal meetings, where I would often need to act as an intermediary between 
+                  technical and non-technical teams, but also on client conference calls where I would liase with 
+                  technical and non-technical contacts to ensure all necessary information is extracted pertaining to a project.</p>
               </td>
             </tr>
           </table>
@@ -222,18 +256,18 @@
               <td class="mono">Nov 2014 - Jun 2016</td>
               <td>
                 <p>I undertook quality-assurance testing for all client systems and development projects. I performed 
-                white-box system, performance, load, regression, stress and data interface testing. Providing 
-                internal developer teams with detailed reports on necessary changes, identifying bugs/flaws and 
-                recommending fixes where I could see solutions.</p>
+                  white-box system, performance, load, regression, stress and data interface testing. Providing 
+                  internal developer teams with detailed reports on necessary changes, identifying bugs/flaws and 
+                  recommending fixes where I could see solutions.</p>
                 <p>I held responsibility for the approval of all development, constituting client website set-up, 
-                connectivity, document generation, document sending and user access to our systems. 
-                The core of the system was PHP with many relational SQL databases. I was responsible for the status of 
-                the testing servers and managed them using version control systems such as git via bitbucket as well as 
-                through custom deployment scripts and envoyer.io.</p>
+                  connectivity, document generation, document sending and user access to our systems. 
+                  The core of the system was PHP with many relational SQL databases. I was responsible for the status of 
+                  the testing servers and managed them using version control systems such as git via bitbucket as well as 
+                  through custom deployment scripts and envoyer.io.</p>
                 <p>Along with these responsibilities, I have also been providing statistical analysis and reporting to 
-                members of client services teams as well as to directors directly. These include reports generated by 
-                hand from our client databases (SQL) and from our internal management tools such as JIRA and vivantio, 
-                both of which I am an administrative user.</p>
+                  members of client services teams as well as to directors directly. These include reports generated by 
+                  hand from our client databases (SQL) and from our internal management tools such as JIRA and vivantio, 
+                  both of which I am an administrative user.</p>
               </td>
             </tr>
           </table>
