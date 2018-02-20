@@ -1,7 +1,7 @@
 <template>
-  <v-container fluid>
+  <v-container grid-list-md pt-0>
     <v-layout row wrap text-xs-center>
-      <v-flex xs12 sm6 offset-sm3>
+      <v-flex xs12>
         <v-card>
           <v-card-title primary-title class="layout justify-center">
             <div class="headline">Projects</div>

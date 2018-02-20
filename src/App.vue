@@ -1,94 +1,139 @@
 <template>
   <v-app>
-    <v-navigation-drawer
-      app
-      fixed
-      v-model="nav.drawer"
-    >
-      <v-list>
-        <v-list-tile
-          v-for="(item, i) in nav.items"
-          :key="i"
-          exact
-          :to="{name: item.route}">
-          <v-list-tile-action>
-            <v-icon v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-
     <v-toolbar app fixed>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <v-toolbar-title @click="$vuetify.goTo(0)" v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-side-icon class="hidden-md-and-up" @click.native.stop="nav.drawer = !nav.drawer"></v-toolbar-side-icon>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat :to="{name: 'home'}">Home</v-btn>
-        <v-btn flat :to="{name: 'about'}">About</v-btn>
-        <v-btn flat :to="{name: 'portfolio'}">Portfolio</v-btn>
-        <v-btn flat :to="{name: 'contact'}">Contact</v-btn>
+        <v-btn flat @click="$vuetify.goTo('#about', {offset: -100})">About</v-btn>
+        <v-btn flat @click="$vuetify.goTo('#portfolio', {offset: -100})">Portfolio</v-btn>
+        <v-btn flat @click="$vuetify.goTo('#contact')">Contact</v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
-    <v-content>
+    <v-content v-scroll="onScroll">
       <poly-background/>
       <section>
-        <v-parallax src="assets/hero.jpeg" height="600">
-          <v-layout
-            column
-            align-center
-            justify-center
-            class="white--text"
-          >
-            <h1 class="white--text mb-2 display-3">itho</h1>
-            <div class="headline mb-3 text-xs-center">Web &amp; Mobile Solutions.</div>
-            <v-btn
-              class="blue mt-5"
-              dark
-              large
-              :to="{name: 'contact'}"
-            >
-              Get In Touch!
-            </v-btn>
-          </v-layout>
-        </v-parallax>
+        <v-jumbotron height="450px">
+          <v-container fill-height>
+            <v-layout align-center text-xs-center white--text>
+              <v-flex>
+                <h3 class="display-3">itho</h3>
+                <span class="subheading">Web &amp; Mobile Development.</span>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-jumbotron>
       </section>
-      
-      <v-slide-x-transition mode="out-in">
-        <router-view/>
-      </v-slide-x-transition>
+
+      <home-view id="home"/>
+      <about-view id="about"/>
+      <portfolio-view id="portfolio"/>
     </v-content>
     
-    <v-footer app absolute>
-      <span class="pl-2">&copy; {{ new Date().getFullYear() }}</span>
+    <v-fab-transition>
+      <v-btn
+        fixed
+        dark
+        fab
+        bottom
+        right
+        color="accent"
+        v-show="offsetTop > 100"
+        @click="$vuetify.goTo(0)"
+      >
+        <v-icon>keyboard_arrow_up</v-icon>
+      </v-btn>
+    </v-fab-transition>
+
+    <!-- <v-footer app absolute>
+      <v-spacer/>
+      <span class="pl-2">&copy; {{ new Date().getFullYear() }} itho.co</span>
+      <v-spacer/>
+    </v-footer> -->
+
+    <v-footer app absolute id="contact">
+      <v-layout row wrap ma-0>
+        <v-flex xs12 sm3 pa-4 dark white--text style="background: #64677C;">
+          <v-list dense class="transparent white--text">
+            <v-list-tile avatar v-for="item in socials" :key="item.title" :href="item.url">
+              <v-list-tile-action>
+                <v-icon v-html="item.icon" color="white"></v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>
+                <v-list-tile-title v-text="item.title"></v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </v-flex>
+        <v-flex xs12 sm3 pa-4 dark white--text style="background: #484B5E;">
+          <!-- <h3>Please feel free to get in contact...<br></h3> -->
+          <v-list dense class="transparent white--text">
+            <v-list-tile avatar href="mailto:contact@itho.co">
+              <v-list-tile-action>
+                <v-icon color="white">email</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>
+                <v-list-tile-title>contact@itho.co</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </v-flex>
+        <v-flex xs12 hidden-xs-only sm3 pa-4 dark white--text style="background: #484B5E;">&nbsp;</v-flex>
+        <v-flex xs12 hidden-xs-only sm3 pa-4 dark white--text style="background: #484B5E;">&nbsp;</v-flex>
+        <v-flex xs12 text-xs-center pa-3 dark white--text style="background: #292b37;">
+          <span class="pl-2">&copy; {{ new Date().getFullYear() }} itho.co</span>
+        </v-flex>
+      </v-layout>
     </v-footer>
   </v-app>
 </template>
 
+<style>
+  .theme--light .toolbar,
+  .application .theme--light.toolbar
+  .theme--light .card,
+  .application .theme--light.card {
+    background-color: ghostwhite;
+  }
+  .transparent {
+    background: inherit;
+    background-color: inherit;
+  }
+  #portfolio {
+    margin-bottom: 200px;
+  }
+</style>
+
+
 <script>
+  import HomeView from '@/views/Home'
+  import AboutView from '@/views/About'
+  import PortfolioView from '@/views/Portfolio'
+  import ContactView from '@/views/Contact'
   import PolyBackground from '@/components/Poly.vue'
 
   export default {
     components: {
+      HomeView,
+      AboutView,
+      PortfolioView,
+      ContactView,
       PolyBackground
     },
     data () {
       return {
         title: 'itho',
-        nav: {
-          drawer: false,
-          items: [
-            { title: 'Home', icon: 'home', route: 'home' },
-            { title: 'About', icon: 'help', route: 'about' },
-            { title: 'Portfolio', icon: 'list', route: 'portfolio' },
-            { title: 'Contact', icon: 'feedback', route: 'contact' }
-          ],
-          mini: false,
-          right: null
-        }
+        offsetTop: 0,
+        socials: [
+          { title: 'GitHub', url: 'https://www.github.com/itho/', icon: 'fa-github' },
+          { title: 'Facebook', url: 'https://www.facebook.com/ieuan', icon: 'fa-facebook' },
+          { title: 'LinkedIn', url: 'https://www.linkedin.com/in/ieuan-thomas-187a5576', icon: 'fa-linkedin' }
+        ]
+      }
+    },
+    methods: {
+      onScroll (e) {
+        this.offsetTop = window.pageYOffset || document.documentElement.scrollTop
       }
     }
   }

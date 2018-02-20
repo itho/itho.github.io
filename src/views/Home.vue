@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid grid-list-xl>
+  <v-container grid-list-md>
     <v-layout row wrap text-xs-center>
       <v-flex xs12 sm4 v-for="(item, i) in items" :key="i">
         <v-card class="pa-3" style="height: 100%;">

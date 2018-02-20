@@ -6,12 +6,12 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.css'
 
 import App from './App'
-import router from './router'
+// import router from './router'
 
 Vue.use(Vuetify, { theme: {
-  primary: '#ee44aa',
+  primary: '#292b37',
   secondary: '#424242',
-  accent: '#82B1FF',
+  accent: '#ee44aa',
   error: '#FF5252',
   info: '#2196F3',
   success: '#4CAF50',
@@ -23,7 +23,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
+  // router,
   template: '<App/>',
   components: { App }
 })
