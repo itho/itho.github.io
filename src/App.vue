@@ -53,7 +53,7 @@
 
     <v-footer app absolute id="contact">
       <v-layout row wrap ma-0>
-        <v-flex xs12 sm3 pa-4 dark white--text style="background: #64677C;">
+        <v-flex xs12 sm3 pa-4 dark white--text style="background: #5B647F;">
           <v-list dense class="transparent white--text">
             <v-list-tile avatar v-for="item in socials" :key="item.title" :href="item.url">
               <v-list-tile-action>
@@ -65,7 +65,7 @@
             </v-list-tile>
           </v-list>
         </v-flex>
-        <v-flex xs12 sm3 pa-4 dark white--text style="background: #484B5E;">
+        <v-flex xs12 sm3 pa-4 dark white--text style="background: #404964;">
           <!-- <h3>Please feel free to get in contact...<br></h3> -->
           <v-list dense class="transparent white--text">
             <v-list-tile avatar href="mailto:contact@itho.co">
@@ -78,9 +78,9 @@
             </v-list-tile>
           </v-list>
         </v-flex>
-        <v-flex xs12 hidden-xs-only sm3 pa-4 dark white--text style="background: #484B5E;">&nbsp;</v-flex>
-        <v-flex xs12 hidden-xs-only sm3 pa-4 dark white--text style="background: #484B5E;">&nbsp;</v-flex>
-        <v-flex xs12 text-xs-center pa-3 dark white--text style="background: #292b37;">
+        <v-flex xs12 hidden-xs-only sm3 pa-4 dark white--text style="background: #404964;">&nbsp;</v-flex>
+        <v-flex xs12 hidden-xs-only sm3 pa-4 dark white--text style="background: #404964;">&nbsp;</v-flex>
+        <v-flex xs12 text-xs-center pa-3 dark white--text style="background: #283048;">
           <span class="pl-2">&copy; {{ new Date().getFullYear() }} itho.co</span>
         </v-flex>
       </v-layout>
@@ -89,21 +89,23 @@
 </template>
 
 <style>
+  body,
   .theme--light .toolbar,
-  .application .theme--light.toolbar
-  .theme--light .card,
-  .application .theme--light.card {
+  .application .theme--light.toolbar {
     background-color: ghostwhite;
   }
   .transparent {
     background: inherit;
     background-color: inherit;
   }
+  .theme--light .card,
+  .application .theme--light.card {
+    background-color: rgba(255,255,255,0.75);
+  }
   #portfolio {
     margin-bottom: 200px;
   }
 </style>
-
 
 <script>
   import HomeView from '@/views/Home'
