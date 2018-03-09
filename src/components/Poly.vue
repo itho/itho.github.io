@@ -4,8 +4,11 @@
 
 <style>
   #poly {
-    background: radial-gradient(ellipse at center, #292b37 40%, black 100%);
-    background: #292b37;
+    /* background: radial-gradient(ellipse at center, #292b37 40%, black 100%);
+    background: #292b37; */
+    background: #283048;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #859398, #283048);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #859398, #283048); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     position: fixed;
     height: 100%;
     width: 100%;
@@ -49,7 +52,7 @@
         svg.setAttribute('height', this.viewportHeight)
         document.querySelector('#poly').appendChild(svg)
 
-        this.unitSize = (window.innerWidth + window.innerHeight) / 20
+        this.unitSize = (window.innerWidth + window.innerHeight) / 27
         this.numPointsX = Math.ceil(window.innerWidth / this.unitSize) + 1
         this.numPointsY = Math.ceil(window.innerHeight / this.unitSize) + 1
         this.unitWidth = Math.ceil(window.innerWidth / (this.numPointsX - 1))
