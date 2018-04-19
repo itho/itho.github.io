@@ -11,7 +11,7 @@
     body {
       background: rgb(204,204,204);
       color: #111;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
       font-size: 8pt;
       text-align: left;
     }
@@ -64,7 +64,10 @@
     }
     ul {
       list-style-type: none;
-      -webkit-padding-start: .5cm;
+      -webkit-padding-start: .2cm;
+    }
+    li {
+      line-height: 1.5em;
     }
     li:before {
       content: "-";
@@ -73,6 +76,9 @@
     h1 {
       -webkit-margin-before: 0em;
       margin-top: 2px;
+    }
+    p {
+      line-height: 1.4em;
     }
     .title {
       -webkit-margin-before: 0em;
@@ -137,7 +143,7 @@
             <tr>
               <td>Contact</td>
               <td>
-                <a class="contact" href="tel:00447793202319">07793 202319</a>
+                <a class="contact" href="tel:00447793202319">+447793202319</a>
               </td>
             </tr>
             <tr>
@@ -176,19 +182,18 @@
         <section>
           <h1>Skills</h1>
           <ul>
-            <li>Frontend web design &amp; development (<b>HTML</b>, <b>CSS</b>, <b>Javascript</b>, Node, Webpack, Vue.js, jQuery, Sass, Bootstrap)</li>
-            <li>Backend web design &amp; development (<b>PHP</b>, Laravel, <b>Javascript</b>, Node, Webpack, Firebase, RESTful APIs)</li>
-            <li>Database use and design (OracleSQL, MySQL, Redis, Firebase)</li>
-            <li>Experience supporting production applications including statistical analysis and tactical intervention</li>
-            <li>Trained to use tools such as Splunk, Prometheus &amp; Grafana for realtime application analysis</li>
-            <li>Exoerienced with virtualisation and automation (VirtualBox, Vagrant, Ansible)</li>
-            <li>Practiced supporting applications in 'typical' hosting setups as well as in highly available multi-instance setups (Docker &amp; Kubernetes)</li>
-            <li>Proficient working in UNIX like environments as well as with using Windows/MacOS</li>
-            <li>Background in application testing (white-box system, performance, load, regression, stress and API testing</li>
-            <li>Development standard practices such as GIT, Continuous Integration &amp; Delivery, JIRA, Containerisation</li>
+            <li>Front-end web design &amp; development (<b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, Node, Webpack, Vue.js, jQuery, Sass, Bootstrap)</li>
+            <li>Back-end web design &amp; development (<b>PHP</b>, Laravel, <b>Javascript</b>, Node, Webpack, Firebase, RESTful APIs)</li>
+            <li>Database usage and schema design (OracleSQL, MySQL, Google Firebase)</li>
+            <li>Operational experience supporting production applications and highly available services in a 24/7 capacity</li>
+            <li>Trained to use tools such as Splunk, Prometheus &amp; Grafana for real-time application analysis and reporting</li>
+            <li>Exoerienced with virtualisation and automation (Docker, Kubernetes, VirtualBox, Vagrant, Ansible)</li>
+            <li>Proficient working in Linux/UNIX like environments as well as with using Windows &amp; MacOS</li>
+            <li>Background in application testing (white-box integration, performance, component and UI/UX testing)</li>
+            <li>Development standard practices such as git VCS, CI &amp; CD</li>
             <li>Experienced working in an agile project/development environment within large groups and personal projects</li>
             <li>Confident communicating with and explaining to technical and non-technical teams the aims and dependencies of the other</li>
-            <li>Proficient with several 2D and 3D graphical packages; Photoshop, GIMP, AutoCAD, Unity3D</li>
+            <li>Familiarity with Adobe Photoshop, AutoCAD &amp; Unity3D software</li>
           </ul>
         </section>
       </div>
@@ -197,26 +202,42 @@
           <h1>Employment History</h1>
 
           <h3 style="margin-bottom: 0px;">
-            <a class="contact" href="https://www.sky.com/">Sky UK</a> - Technical Operations Analyst</h3>
+            <a class="contact" href="https://www.sky.com/">Sky UK</a> - Technical Operations Analyst
+          </h3>
           <span class="mono">Dec 2016 - Present</span>
-          <p>My role was in the operations team of the Networks division, responsible for all provisioning and assurance of existing and
-            new customers.</p>
+
+          <p>An operations/application support role at its core, looking after business critical applications and
+            working in strong cooperation with developement teams to maintain and improve the platform as a whole.
+            The team had the freedom within the technology department to develop tactical scripts and tools as
+            we saw fit to respond to problems in an agile way while then working with core development teams on the
+            strategic change implementations.</p>
+          <p>Strong problem solving skills were necessary in order to fix problems that arose and our full set of
+            skills were tested daily, be it through developing tools to simulate app to app communication, automating
+            message broker processing or performing database edits to production schemas to fix erroneous scenarios.</p>
 
           <ul>
-            <li>Created </li>
+            <li>Provided 24/7 production support for over 140 business critical Java applications accross various servers and sites</li>
+            <li>Helped launch the new wave of highly available services leveraging Google's Kubernetes and Sky's Virtual Data Center platform</li>
+            <li>Worked extensively to automate common team functions and provide team members with time saving tools (Laravel web platform)</li>
+            <li>Created real-time monitoring dashboards using Splunk to aid business analysts during product launches (Sky Mobile, 2017)</li>
+            <li>Singlehandedly reworked the UI/UX of our tactical tools portal which served over 150 users within the business</li>
+            <li>Carried out monthly overnight releases in conjunction with Release Management, DBAs and testers to non-HA software stacks</li>
+            <li>Supported B2B connectivity channels and dealt with third-party provider operations teams where necessary</li>
           </ul>
 
           <h3 style="margin-bottom: 0px;">
              <a class="contact" href="http://netsend.com/">Netsend Ltd</a> - Software Tester &amp; Product Development Engineer</h3>
           <span class="mono">Nov 2013 - Dec 2016</span>
-          <p>I performed white-box system, performance, load, regression, stress and user interface testing. Providing internal development
-            teams with detailed reports on necessary changes, bugs and also recommended approaches for fixes where I could apply my
+
+          <p>I performed all integration, performance, component and UI/UX testing. Providing internal development
+            teams with detailed reports on necessary changes, bugs and also recommended approaches for fixes where I could apply my own
             system knowledge to help.</p>
-          <p>I held responsibility for the approval of all development, constituting client portal set-up, connectivity, document generation,
-            document sending and user access to our systems. The core of the system was PHP with many relational MySQL databases.</p>
-          <p>Alongside previous responsibilities I have been working in many areas of developing the company product, including working
+          <p>Working closely with project managers and development leads to ensure delivery of quality services and features in
+            acordance with company timelines and requirements.</p>
+
+          <!-- <p>Alongside previous responsibilities I have been working in many areas of developing the company product, including working
             with design and marketing teams to update and improve the UI/UX of our online sites.</p>
-          <!-- <p>I was given the responsibility of making key design choices during the conceptualisation stage of the project and I was also
+          <p>I was given the responsibility of making key design choices during the conceptualisation stage of the project and I was also
             the front-end developer working with Laravel as the framework for our sites to create the views in PHP, HTML, CSS (Sass)
             and Javascript (jQuery), after having the plans approved by the directors of the company.</p>
           <p>Using my skills with Java in creating Android applications, I developed a complimentary app to deliver our new responsive
@@ -234,31 +255,33 @@
           </p> -->
 
           <ul>
-            <li>Responsible for management and unkeep of the staging environments using deployment pipelines</li>
-            <li>Provided statistical analysis and reports to members of the business as well as to directors directly</li>
-            <li>Responsible for management and unkeep of the staging environments using deployment pipelines</li>
-            <li>Provided statistical analysis and reports to members of the business as well as to directors directly</li>
-            <li>Responsible for management and unkeep of the staging environments using deployment pipelines</li>
-            <li>Provided statistical analysis and reports to members of the business as well as to directors directly</li>
+            <li>Final approval of all development (client portal set-up, B2B connectivity, software updates and user access to our systems)</li>
+            <li>Responsible for management and unkeep of the staging environments using continuous deployment pipelines</li>
+            <li>Provided weekly statistical analysis and reports directly to directors</li>
+            <li>Front-end development of financial document layouts for different clients</li>
+            <li>Created intial working mock ups/wireframes for potential feature developments</li>
+            <li>Designed, wrote and maintained the Android web wrapper apps we had for our clients portals</li>
           </ul>
         </section>
       </div>
     </div>
   </page>
   <script>
-    console.log('Ieuan Thomas\nieuan.thomas@gmail.com\nitho.co');
-    var page = document.getElementById("CV");
-    function fadeIn(page) {
-      page.style.opacity = 0;
-      var tick = function() {
-        page.style.opacity = +page.style.opacity + 0.01;
+    console.log('Ieuan Thomas\nieuan.thomas@gmail.com\nhttps://itho.co')
+    
+    function fadeIn () {
+      let page = document.getElementById('CV')
+      page.style.opacity = 0
+      let tick = () => {
+        page.style.opacity = +page.style.opacity + 0.01
         if (+page.style.opacity < 1) {
           (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
         }
       };
-      tick();
+      tick()
     }
-    fadeIn(page);
+
+    fadeIn()
   </script>
 </body>
 </html>
