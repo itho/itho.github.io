@@ -12,22 +12,27 @@
 
     <v-content v-scroll="onScroll">
       <poly-background/>
-      <section>
-        <v-jumbotron height="450px">
-          <v-container fill-height>
-            <v-layout align-center text-xs-center white--text>
-              <v-flex>
-                <h3 class="display-3">itho</h3>
-                <span class="subheading">Web &amp; Mobile Development.</span>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-jumbotron>
-      </section>
 
-      <home-view id="home"/>
-      <about-view id="about"/>
-      <portfolio-view id="portfolio"/>
+      <v-container fluid>
+        <v-layout>
+          <v-flex xs12 sm10 offset-sm1 md8 offset-md2>
+            <v-jumbotron height="450px">
+              <v-container fill-height>
+                <v-layout align-center text-xs-center white--text>
+                  <v-flex>
+                    <h3 class="display-3">itho</h3>
+                    <span class="subheading">Web &amp; Mobile Development.</span>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-jumbotron>
+
+            <home-view id="home"/>
+            <about-view id="about"/>
+            <portfolio-view id="portfolio"/>
+          </v-flex>
+        </v-layout>
+      </v-container>
     </v-content>
     
     <v-fab-transition>

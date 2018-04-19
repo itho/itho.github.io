@@ -1,7 +1,7 @@
 <template>
   <v-container grid-list-md>
     <v-layout row wrap text-xs-center>
-      <v-flex xs12 sm4 v-for="(item, i) in items" :key="i">
+      <v-flex xs12 md4 v-for="(item, i) in items" :key="i">
         <v-card class="pa-3" style="height: 100%;">
           <v-card-text class="text-xs-center">
             <v-icon v-html="item.icon" x-large class="blue--text text--lighten-2"></v-icon>
