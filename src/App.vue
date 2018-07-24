@@ -180,7 +180,7 @@ width: 200vw;
 height: 200vw;
 position: absolute;
 top: -150vw;
-left: -85vw;
+left: -100vw;
 border-radius: 90vw;
 opacity: 0.6;
 }
@@ -189,21 +189,18 @@ opacity: 0.6;
 @media screen and (min-width: 769px) {
   #flow span {
     top: -125vw;
-    left: -90vw;
   }
 }
 // desktop
 @media screen and (min-width: 1000px) {
   #flow span {
     top: -150vw;
-    left: -90vw;
   }
 }
 // widescreen
 @media screen and (min-width: 1192px) {
   #flow span {
     top: -165vw;
-    left: -85vw;
   }
 }
 
