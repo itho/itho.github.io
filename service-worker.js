@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.5c71603f8df2590f5a00c479672959f4.js"
+  "/precache-manifest.971cbbbeb2a398766073e83a5d765d3b.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "itho.github.io"});
