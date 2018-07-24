@@ -46,7 +46,7 @@ export default class WebApps extends Vue {
       title: 'MEVN-Boilerplate',
       type: 'Web / Local',
       description: 'MongoDB, Express, Vue.js & Node.js boilerplate for bootstrapping PWA development.',
-      imageUrl: 'https://itho.co/static/img/mevn-boilerplate.png',
+      imageUrl: 'https://itho.co/img/icons/mevn-boilerplate.png',
       url: 'https://github.com/itho/mevn-boilerplate',
     },
   ];
