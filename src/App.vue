@@ -1,147 +1,283 @@
 <template>
-  <v-app>
-    <v-toolbar app fixed>
-      <v-toolbar-title @click="$vuetify.goTo(0)" v-text="title"></v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat @click="$vuetify.goTo('#about', {offset: -100})">About</v-btn>
-        <v-btn flat @click="$vuetify.goTo('#portfolio', {offset: -100})">Portfolio</v-btn>
-        <v-btn flat @click="$vuetify.goTo('#contact')">Contact</v-btn>
-      </v-toolbar-items>
-    </v-toolbar>
+  <div id="app">
+    <div id="flow">
+      <span class="flow-1"></span>
+      <span class="flow-2"></span>
+      <span class="flow-3"></span>
+    </div>
 
-    <v-content v-scroll="onScroll">
-      <poly-background/>
+    <nav class="navbar is-transparent is-primary has-background-dark">
+      <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://itho.co">
+          <b>itho</b>
+        </a>
+        <!-- <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div> -->
+      </div>
 
-      <v-container fluid>
-        <v-layout>
-          <v-flex xs12 sm10 offset-sm1 md8 offset-md2>
-            <v-jumbotron height="450px">
-              <v-container fill-height>
-                <v-layout align-center text-xs-center white--text>
-                  <v-flex>
-                    <h3 class="display-3">itho</h3>
-                    <span class="subheading">Web &amp; Mobile Development.</span>
-                  </v-flex>
-                </v-layout>
-              </v-container>
-            </v-jumbotron>
+      <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <!-- <div class="navbar-start">
+          <a class="navbar-item" href="https://itho.co/">
+            Home
+          </a>
+        </div> -->
 
-            <home-view id="home"/>
-            <about-view id="about"/>
-            <portfolio-view id="portfolio"/>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </v-content>
-    
-    <v-fab-transition>
-      <v-btn
-        fixed
-        dark
-        fab
-        bottom
-        right
-        color="accent"
-        v-show="offsetTop > 100"
-        @click="$vuetify.goTo(0)"
-      >
-        <v-icon>keyboard_arrow_up</v-icon>
-      </v-btn>
-    </v-fab-transition>
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Web Apps
+            </a>
+            <div class="navbar-dropdown is-boxed is-right">
+              <a @click="goTo('webapps')" class="navbar-item">
+                Overview
+              </a>
+              <hr class="dropdown-divider">
+              <a class="navbar-item" href="https://around.itho.co" target="_blank">
+                Around
+              </a>
+              <a class="navbar-item" href="https://cryptotracker.itho.co" target="_blank">
+                CryptoTracker
+              </a>
+              <a class="navbar-item" href="https://github.com/itho/hackerrank.js" target="_blank">
+                HackerRank.js
+              </a>
+              <a class="navbar-item" href="https://github.com/itho/mevn-boilerplate" target="_blank">
+                MEVN-boilerplate
+              </a>
+            </div>
+          </div>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Games
+            </a>
+            <div class="navbar-dropdown is-boxed is-right">
+              <a @click="goTo('games')" class="navbar-item">
+                Overview
+              </a>
+              <hr class="dropdown-divider">
+              <a class="navbar-item is-disabled has-text-grey-lighter" disabled>
+                Aurora
+              </a>
+            </div>
+          </div>
+          <a @click="goTo('contact')" class="navbar-item">
+            Contact
+          </a>
+        </div>
+      </div>
+      </div>
+    </nav>
 
-    <!-- <v-footer app absolute>
-      <v-spacer/>
-      <span class="pl-2">&copy; {{ new Date().getFullYear() }} itho.co</span>
-      <v-spacer/>
-    </v-footer> -->
+    <router-view/>
 
-    <v-footer app absolute id="contact">
-      <v-layout row wrap ma-0>
-        <v-flex xs12 sm3 pa-4 dark white--text style="background: #5B647F;">
-          <v-list dense class="transparent white--text">
-            <v-list-tile avatar v-for="item in socials" :key="item.title" :href="item.url">
-              <v-list-tile-action>
-                <v-icon v-html="item.icon" color="white"></v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title v-text="item.title"></v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </v-list>
-        </v-flex>
-        <v-flex xs12 sm3 pa-4 dark white--text style="background: #404964;">
-          <!-- <h3>Please feel free to get in contact...<br></h3> -->
-          <v-list dense class="transparent white--text">
-            <v-list-tile avatar href="mailto:contact@itho.co">
-              <v-list-tile-action>
-                <v-icon color="white">email</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>contact@itho.co</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </v-list>
-        </v-flex>
-        <v-flex xs12 hidden-xs-only sm3 pa-4 dark white--text style="background: #404964;">&nbsp;</v-flex>
-        <v-flex xs12 hidden-xs-only sm3 pa-4 dark white--text style="background: #404964;">&nbsp;</v-flex>
-        <v-flex xs12 text-xs-center pa-3 dark white--text style="background: #283048;">
-          <span class="pl-2">&copy; {{ new Date().getFullYear() }} itho.co</span>
-        </v-flex>
-      </v-layout>
-    </v-footer>
-  </v-app>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          The source code linked is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a> unless otherwise stated.
+        </p>
+        <p>
+          &copy; {{ new Date().getFullYear() }} itho.co
+        </p>
+      </div>
+    </footer>
+  </div>
 </template>
 
-<style>
-  body,
-  .theme--light .toolbar,
-  .application .theme--light.toolbar {
-    background-color: ghostwhite;
-  }
-  .transparent {
-    background: inherit;
-    background-color: inherit;
-  }
-  .theme--light .card,
-  .application .theme--light.card {
-    background-color: rgba(255,255,255,0.75);
-  }
-  #portfolio {
-    margin-bottom: 200px;
-  }
-</style>
+<script lang="ts">
+import AppFooter from '@/components/AppFooter.vue';
+import { Component, Vue } from 'vue-property-decorator';
 
-<script>
-  import HomeView from '@/views/Home'
-  import AboutView from '@/views/About'
-  import PortfolioView from '@/views/Portfolio'
-  import ContactView from '@/views/Contact'
-  import PolyBackground from '@/components/Poly.vue'
+@Component({
+  components: {
+    AppFooter
+  },
+})
+export default class App extends Vue {
+  goTo (el: string) {
+    var target = document.getElementById(el);
+    if (target)
+      animate(document.scrollingElement || document.documentElement, "scrollTop", "", 0, target.offsetTop, 350, true);
+  }
+}
 
-  export default {
-    components: {
-      HomeView,
-      AboutView,
-      PortfolioView,
-      ContactView,
-      PolyBackground
-    },
-    data () {
-      return {
-        title: 'itho',
-        offsetTop: 0,
-        socials: [
-          { title: 'GitHub', url: 'https://www.github.com/itho/', icon: 'fa-github' },
-          { title: 'Facebook', url: 'https://www.facebook.com/ieuan', icon: 'fa-facebook' },
-          { title: 'LinkedIn', url: 'https://www.linkedin.com/in/ieuan-thomas-187a5576', icon: 'fa-linkedin' }
-        ]
-      }
-    },
-    methods: {
-      onScroll (e) {
-        this.offsetTop = window.pageYOffset || document.documentElement.scrollTop
-      }
+function animate(elem: any, style: any, unit: any, from: any, to: any, time: any, prop: any) {
+    if (!elem) {
+        return;
     }
-  }
+    var start = new Date().getTime(),
+        timer = setInterval(function () {
+            var step = Math.min(1, (new Date().getTime() - start) / time);
+            if (prop) {
+                elem[style] = (from + step * (to - from))+unit;
+            } else {
+                elem.style[style] = (from + step * (to - from))+unit;
+            }
+            if (step === 1) {
+                clearInterval(timer);
+            }
+        }, 10);
+    if (prop) {
+          elem[style] = from+unit;
+    } else {
+          elem.style[style] = from+unit;
+    }
+}
 </script>
+
+<style lang="scss">
+@import '../node_modules/bulma/bulma.sass';
+
+// html { background: #283048; }
+// body { background: linear-gradient(90deg,#859398,#283048); }
+
+html, body, #app {
+  background: #252830;
+}
+
+a {
+  color: #87b1e3;
+}
+
+// #app {
+//   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   // text-align: center;
+//   color: #2c3e50;
+// }
+// #nav {
+//   padding: 30px;
+//   a {
+//     font-weight: bold;
+//     color: #2c3e50;
+//     &.router-link-exact-active {
+//       color: #42b983;
+//     }
+//   }
+// }
+.social-item {
+  font-size: 14pt;
+  padding: 10px;
+}
+.social-icon {
+  fill: grey;
+  width: 30px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.social-link {
+  vertical-align: middle;
+}
+
+#flow span {
+display: block;
+width: 200vw;
+height: 200vw;
+position: absolute;
+top: -150vw;
+left: -85vw;
+border-radius: 90vw;
+opacity: 0.6;
+}
+
+// tablet
+@media screen and (min-width: 769px) {
+  #flow span {
+    top: -125vw;
+    left: -90vw;
+  }
+}
+// desktop
+@media screen and (min-width: 1000px) {
+  #flow span {
+    top: -150vw;
+    left: -90vw;
+  }
+}
+// widescreen
+@media screen and (min-width: 1192px) {
+  #flow span {
+    top: -165vw;
+    left: -85vw;
+  }
+}
+
+.flow-1 {
+background: #3281ff;
+// background: #00B4DB;
+-webkit-animation: rotating 20s linear infinite;
+-moz-animation: rotating 20s linear infinite;
+-ms-animation: rotating 20s linear infinite;
+-o-animation: rotating 20s linear infinite;
+animation: rotating 20s linear infinite;
+}
+.flow-2 {
+background: #f442ee;
+// background: #f953c6;
+position: absolute;
+-webkit-animation: rotating 15s linear infinite;
+-moz-animation: rotating 15s linear infinite;
+-ms-animation: rotating 15s linear infinite;
+-o-animation: rotating 15s linear infinite;
+animation: rotating 15s linear infinite;
+}
+.flow-3 {
+background: #42eef4;
+// background: #78ffd6;
+position: absolute;
+-webkit-animation: rotating 7s linear infinite;
+-moz-animation: rotating 7s linear infinite;
+-ms-animation: rotating 7s linear infinite;
+-o-animation: rotating 7s linear infinite;
+animation: rotating 7s linear infinite;
+}
+@-webkit-keyframes rotating {
+from {
+-ms-transform: rotate(0deg);
+-moz-transform: rotate(0deg);
+-webkit-transform: rotate(0deg);
+-o-transform: rotate(0deg);
+transform: rotate(0deg);
+}
+to {
+-ms-transform: rotate(360deg);
+-moz-transform: rotate(360deg);
+-webkit-transform: rotate(360deg);
+-o-transform: rotate(360deg);
+transform: rotate(360deg);
+}
+}
+@keyframes rotating {
+from {
+-ms-transform: rotate(0deg);
+-moz-transform: rotate(0deg);
+-webkit-transform: rotate(0deg);
+-o-transform: rotate(0deg);
+transform: rotate(0deg);
+}
+to {
+-ms-transform: rotate(360deg);
+-moz-transform: rotate(360deg);
+-webkit-transform: rotate(360deg);
+-o-transform: rotate(360deg);
+transform: rotate(360deg);
+}
+}
+.rotating {
+-webkit-animation: rotating 2s linear infinite;
+-moz-animation: rotating 2s linear infinite;
+-ms-animation: rotating 2s linear infinite;
+-o-animation: rotating 2s linear infinite;
+animation: rotating 2s linear infinite;
+}
+
+.footer {
+  background: #434857;
+  color: whitesmoke;
+}
+</style>
