@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/favicon.ico">
+  <title>Ieuan Thomas - CV</title>
+  <style>
+    body {
+      background: rgb(204,204,204);
+      color: #111;
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
+      font-size: 8pt;
+      text-align: left;
+    }
+    page {
+      background: white;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 0.5cm;
+      box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+    }
+    page[size="A4"] {  
+      width: 21cm;
+      height: 29.7cm; 
+    }
+    @media print {
+      body, page {
+        margin: 0;
+        box-shadow: 0;
+      }
+    }
+    .flexbox-container {
+      display: flex;
+      width: 100%;
+    }
+    .flexbox-item {
+      order: 1;
+      flex: 1;
+      flex-basis: auto;
+    }
+    .mono {
+      font-family: 'Roboto Mono', monospace;
+    }
+    /* common */
+    #banner {
+      height: 10px;
+      background: -webkit-linear-gradient(to left, #292b37, #0C9);
+      background: linear-gradient(to left, #292b37 , #0C9);
+    }
+    #content {
+      margin-top: -10px;
+      padding: 1.5cm;
+    }
+    th {
+      overflow: visible;
+      white-space: nowrap;
+      font-size: 10pt;
+    }
+    td {
+      vertical-align: top;
+    }
+    ul {
+      list-style-type: none;
+      -webkit-padding-start: .2cm;
+    }
+    li {
+      line-height: 1.5em;
+    }
+    li:before {
+      content: "-";
+      padding-right: 10px;
+    }
+    h1 {
+      -webkit-margin-before: 0em;
+      margin-top: 2px;
+    }
+    p {
+      line-height: 1.4em;
+    }
+    .title {
+      -webkit-margin-before: 0em;
+      margin-top: 0px;
+      font-size: 3em;
+    }
+    #row-2 {
+      margin-bottom: 10px;
+    }
+    #row-2 td:nth-child(1) {
+      color: #555;
+      width: 100px;
+    }
+    #personal-details {
+      width: 50%;
+      float: left;
+    }
+    #education {
+      width: 50%;
+      float: right;
+    }
+    .contact {
+      text-decoration: none;
+      color: inherit;
+    }
+    .grades {
+      color: #555;
+    }
+    #row-4 td:nth-child(1) {
+      color: #555;
+      width: 150px;
+    }
+    #row-4 p:nth-child(1) {
+      -webkit-margin-before: 0px;
+      margin-top: 0px;
+    }
+  </style>
+</head>
+<body>
+  <page id="CV" size="A4">
+    <div id="banner"></div>
+    <div id="content">
+      <div id="row-1">
+        <h1 class="title">Ieuan Thomas</h1>
+      </div>
+      <div id="row-2" class="flexbox-container">
+        <div id="personal-details" class="flexbox-item">
+          <table>
+            <tr>
+              <th>Personal Details</th>
+            </tr>
+            <tr>
+              <td>Name</td>
+              <td>Ieuan Thomas</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>
+                <a class="contact" href="mailto:ieuan.thomas@gmail.com">ieuan.thomas@gmail.com</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Contact</td>
+              <td>
+                <!-- <a class="contact" href="tel:00447793202319">+447793202319</a> -->
+                <a class="contact" href="tel:1-416-822-6162">+1 (416) 822-6162</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Web</td>
+              <td>
+                <a class="contact" href="https://www.itho.co">itho.co</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div id="education" class="flexbox-item">
+          <table>
+            <tr>
+              <th>Education</th>
+            </tr>
+            <tr>
+              <td>University</td>
+              <td><a class="contact" href="https://www.rvc.ac.uk/">Royal Veterinary College, London</a></td>
+            </tr>
+            <tr>
+              <td class="mono">2009-2012</td>
+              <td class="grades">BSc Bioveterinary Science (Hons) 2:ii</td>
+            </tr>
+            <tr>
+              <td>School</td>
+              <td><a class="contact" href="http://www.tiffinschool.co.uk/">Tiffin School</a></td>
+            </tr>
+            <tr>
+              <td class="mono">2002-2009</td>
+              <td class="grades">A level: B, B, C. GCSE: 5 A*, 5 A.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="row-3">
+        <section>
+          <h1>Skills</h1>
+          <ul>
+            <li>Operational experience supporting production applications and highly available services in a 24/7 capacity</li>
+            <li>Trained to use tools such as Splunk, Prometheus &amp; Grafana for real-time application analysis, reporting &amp; alerting</li>
+            <li>Experienced with virtualization and automation (Docker, Kubernetes, VirtualBox, Vagrant, Ansible)</li>
+            <li>Front-end web design &amp; development (<b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, TypeScript, Webpack, Vue.js, jQuery, Sass, Bootstrap, Bulma)</li>
+            <li>Back-end web design &amp; development (<b>PHP</b>, Laravel, <b>Javascript</b>, Node.js, Express, Webpack, Firebase, REST APIs)</li>
+            <li>Database usage and schema design (OracleSQL, MySQL, MongoDB, Google Firebase)</li>
+            <li>Proficient working in Linux/UNIX like environments as well as with using Windows &amp; MacOS</li>
+            <li>Background in application testing (white-box integration, performance, component and UI/UX testing)</li>
+            <li>Development standard practices such as GIT vcs, Continuous Integration (TeamCity, CircleCI) &amp; Continuous Delivery (GoCD)</li>
+            <li>Experienced working in an agile project/development environment within large groups and personal projects</li>
+            <li>Confident communicating with and explaining to technical and non-technical teams the aims and dependencies of the other</li>
+            <!-- <li>Familiarity with Adobe Photoshop, AutoCAD &amp; Unity3D software</li> -->
+          </ul>
+        </section>
+      </div>
+      <div id="row-4">
+        <section>
+          <h1>Employment History</h1>
+
+          <h3 style="margin-bottom: 0px;">
+            <a class="contact" href="https://www.sky.com/">Sky UK</a> - Technical Operations Analyst
+          </h3>
+          <span class="mono">Dec 2016 - Present</span>
+
+          <p>An operations/application support role at its core, looking after business critical applications and
+            working in strong cooperation with development teams to maintain and improve the platform as a whole.
+            The team had the freedom within the technology department to develop tactical scripts and tools as
+            we saw fit to respond to problems in an agile way while then working with core development teams on the
+            strategic change implementations.</p>
+          <p>Strong problem solving skills were necessary in order to fix problems that arose and our full set of
+            skills were tested daily, be it through developing tools to simulate app to app communication, automating
+            message broker processing or performing database updates to production data to provide workarounds to fix erroneous scenarios.</p>
+
+          <ul>
+            <li>Provided 24/7 production support for over 140 business critical Java applications across various servers and sites for P1 and P2 issues, including, for example, having to perform full-stack failover to an alternate site</li>
+            <li>Helped launch the new wave of highly available services utilising Google's Kubernetes and Sky's Virtual Data Center platform by creating the templates for our Prometheus alerting setup, as well as overseeing deployments via GoCD</li>
+            <li>Worked extensively to automate common team functions and provide team members with time saving tools (Laravel web platform) which allowed us to empower those who came to us with the ability to fix the issues for themselves, therefore freeing up more time for our team (e.g. app-to-app message replay, streamlined reporting dashboards)</li>
+            <li>Created real-time monitoring dashboards using Splunk to aid business analysts during product launches (Sky Mobile, 2017)</li>
+            <li>Singlehandedly reworked the UI/UX of our tactical tools portal which served over 150 users within the business</li>
+            <li>Carried out monthly overnight releases in conjunction with Release Management, DBAs and testers to non-HA software stacks, incorporating full stack smoke testing, application health monitoring and overseeing B2B compliance.</li>
+            <li>Supported B2B connectivity channels and dealt with third-party provider operations teams where necessary</li>
+          </ul>
+
+          <h3 style="margin-bottom: 0px;">
+             <a class="contact" href="http://netsend.com/">Netsend Ltd</a> - Software Tester &amp; Product Development Engineer</h3>
+          <span class="mono">Nov 2013 - Dec 2016</span>
+
+          <p>I performed all integration, performance, component and UI/UX testing. Providing internal development
+            teams with detailed reports on necessary changes, bugs and also recommended approaches for fixes where I could apply my own
+            system knowledge to help.</p>
+          <p>Working closely with project managers and development leads to ensure delivery of quality services and features in
+             accordance with company timelines and requirements.</p>
+
+          <!-- <p>Alongside previous responsibilities I have been working in many areas of developing the company product, including working
+            with design and marketing teams to update and improve the UI/UX of our online sites.</p>
+          <p>I was given the responsibility of making key design choices during the conceptualisation stage of the project and I was also
+            the front-end developer working with Laravel as the framework for our sites to create the views in PHP, HTML, CSS (Sass)
+            and Javascript (jQuery), after having the plans approved by the directors of the company.</p>
+          <p>Using my skills with Java in creating Android applications, I developed a complimentary app to deliver our new responsive
+            sites to our clients on their mobile devices, using an implementation of Chrome custom tabs, which provided a professional
+            and integrated experience.</p>
+          <p>With respect to development work, I also updated the company's outgoing email templates and signatures to a responsive and
+            more modern looking standard. The main contact at our largest client noticed these changes and requested similar work to
+            outgoing mail we provided to their customers as part of our service to them, generating extra projects and revenue for
+            our company.</p>
+          <p>From an analytical aspect, I have been involved more with project planning, leveraging my company knowledge against my strengths
+            in logic and planning to ensure that we approached tasks in the best manner. These include internal meetings, where I would
+            often need to act as an intermediary between technical and non-technical teams, but also on client conference calls where
+            I would liase with technical and non-technical contacts to ensure all necessary information is extracted pertaining to
+            a project.
+          </p> -->
+
+          <ul>
+            <li>Final approval of all development (client portal set-up, B2B connectivity, software updates and user access to our systems)</li>
+            <li>Responsible for management and upkeep of the staging environments using continuous deployment pipelines</li>
+            <li>Provided weekly statistical analysis and reports directly to directors</li>
+            <li>Front-end development of financial document layouts for different clients</li>
+            <li>Created initial working mockups/wireframes for potential feature developments</li>
+            <li>Designed, wrote and maintained the Android web wrapper apps we had for our clients portals</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </page>
+  <script>
+    console.log('Ieuan Thomas\nieuan.thomas@gmail.com\nhttps://itho.co')
+    
+    function fadeIn () {
+      let page = document.getElementById('CV')
+      page.style.opacity = 0
+      let tick = () => {
+        page.style.opacity = +page.style.opacity + 0.01
+        if (+page.style.opacity < 1) {
+          (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+        }
+      };
+      tick()
+    }
+
+    fadeIn()
+  </script>
+</body>
+</html>
