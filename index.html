@@ -8,7 +8,12 @@
     <link rel=icon type=image/png sizes=16x16 href=/img/icons/favicon-16x16.png>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
     <style>
-      .flow-banner > div {
+      #main {
+        background-image: url(/img/denim.webp);
+        background-color: #00184d;
+        background-blend-mode: lighten;
+      }
+      #flow-banner > div {
         position: absolute;
         display: block;
         top: -85vw;
@@ -18,16 +23,16 @@
         border-radius: 42.5%;
         opacity: 0.6;
       }
-      .flow-banner > div.a {
+      #flow-banner > div.a {
         animation: rotating 21s linear infinite;
         background-color: yellow;
       }
-      .flow-banner > div.b {
+      #flow-banner > div.b {
         animation: rotating 16s linear infinite;
         background-color: magenta;
         transform: rotate(30deg);
       }
-      .flow-banner > div.c {
+      #flow-banner > div.c {
         animation: rotating 7s linear infinite;
         background-color: aqua;
         transform: rotate(50deg);
@@ -43,7 +48,7 @@
     </style>
   </head>
   <body>
-    <section class="hero is-dark is-fullheight">
+    <section id="main" class="hero is-dark is-fullheight">
       <div class="hero-head">
         <nav class="navbar">
           <div class="container">
@@ -90,7 +95,7 @@
       </div>
     </section>
 
-    <div class="flow-banner">
+    <div id="flow-banner">
       <div class="a"></div>
       <div class="b"></div>
       <div class="c"></div>
