@@ -1,1 +1,99 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"><!--[if IE]><link rel="icon" href="/favicon.ico"><![endif]--><meta name=theme-color content=#87b1e3><title>itho | Web app &amp; game development</title><link as=style href=/css/app.e21c20cd.css rel=preload><link as=script href=/js/app.adc61aa2.js rel=preload><link as=script href=/js/chunk-vendors.5f2299ed.js rel=preload><link href=/css/app.e21c20cd.css rel=stylesheet><link rel=icon type=image/png sizes=32x32 href=/img/icons/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/img/icons/favicon-16x16.png><link rel=manifest href=/manifest.json><meta name=theme-color content=#4DBA87><meta name=apple-mobile-web-app-capable content=no><meta name=apple-mobile-web-app-status-bar-style content=default><meta name=apple-mobile-web-app-title content=itho.github.io><link rel=apple-touch-icon href=/img/icons/apple-touch-icon-152x152.png><link rel=mask-icon href=/img/icons/safari-pinned-tab.svg color=#4DBA87><meta name=msapplication-TileImage content=/img/icons/msapplication-icon-144x144.png><meta name=msapplication-TileColor content=#000000></head><body><noscript><strong>We're sorry but itho.github.io doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=/js/chunk-vendors.5f2299ed.js></script><script src=/js/app.adc61aa2.js></script></body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>itho | Ieuan Thomas</title>
+    <link rel=icon type=image/png sizes=32x32 href=/img/icons/favicon-32x32.png>
+    <link rel=icon type=image/png sizes=16x16 href=/img/icons/favicon-16x16.png>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <style>
+      .flow-banner > div {
+        position: absolute;
+        display: block;
+        top: -85vw;
+        left: -40vw;
+        width: 100vw;
+        height: 100vw;
+        border-radius: 42.5%;
+        opacity: 0.6;
+      }
+      .flow-banner > div.a {
+        animation: rotating 21s linear infinite;
+        background-color: yellow;
+      }
+      .flow-banner > div.b {
+        animation: rotating 16s linear infinite;
+        background-color: magenta;
+        transform: rotate(30deg);
+      }
+      .flow-banner > div.c {
+        animation: rotating 7s linear infinite;
+        background-color: aqua;
+        transform: rotate(50deg);
+      }
+      @keyframes rotating {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(1turn);
+        } 
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero is-dark is-fullheight">
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <!-- <span class="navbar-item">itho.co</span> -->
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="hero-body">
+        <div class="container">
+          <p class="title">Ieuan Thomas</p>
+          <p class="subtitle">Senior Software Engineer</p>
+          <div class="content">
+            <p>
+              Hello! I am a senior software engineer with over 12 years working in web and games.
+            </p>
+            <p>
+              I am currently working as a Senior Software Engineer at Epic Games, in their Technical Developer Relations
+              team, where I work with game developers around the world adopting Epic's suite of Online Services to build
+              the next generation of cross-platform titles. Check out some of my hobby projects below, and on GitHub!
+            </p>
+            <ul>
+              <li>
+                WordShift (<a href="https://word-shift.itho.co">word-shift.itho.co</a>):
+                A 15 Puzzle game (<a href="https://en.wikipedia.org/wiki/15_puzzle">wiki</a>) about finding the highest
+                scoring word combinations.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-foot">
+        <nav class="tabs">
+          <div class="container">
+            <ul>
+              <li><a href="https://github.com/itho">GitHub</a></li>
+              <li><a href="https://linkedin.com/in/ieuan-thomas">LinkedIn</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <div class="flow-banner">
+      <div class="a"></div>
+      <div class="b"></div>
+      <div class="c"></div>
+    </div>
+  </body>
+</html>
